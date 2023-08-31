@@ -1,0 +1,23 @@
+body {
+    /* background-image: url(https://wallpapers.com/images/featured/white-gradient-background-o0tqqpgs66oz4rfr.webp); */
+    background-color: white;
+    background-size: cover;
+}
+
+
+/* Sidebar */
+.nav-link:hover {
+    background-color: rgb(255,255,255,0.1);
+}
+
+.sidebar-header{
+    font-weight: 100;
+    color: rgb(156, 208, 230);
+}
+
+
+/* Content */
+.content {
+    text-align: center;
+    color: black;
+}
