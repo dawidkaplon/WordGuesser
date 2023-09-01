@@ -6,18 +6,19 @@ from .scraping.webscraper import WebScraper
 # Create your tests here.
 
 class WordTest(TestCase):
-    
+    global webscraper, random_length
+
+    webscraper = WebScraper()
+
+    random_length = random.randint(5, 8)
+    webscraper.fetch_data(random_length)
+
     def test_word_length(self):
         """Verify that length of the word is same as the number given as method's parameter"""
-        
-        random_length = random.randint(5, 8)
-        webscraper = WebScraper()
-        webscraper.fetch_data(random_length)
-        self.assertEqual(random_length, len(WebScraper.result_word))
+
+        self.assertEqual(random_length, len(webscraper.result_word))
 
     def test_word_spelling(self):
         """Verify that there are no whitespaces, commas, special symbols etc. in the word"""
-        
-        self.assertTrue(WebScraper.result_word.isalpha())
 
-    
+        self.assertTrue(webscraper.result_word.isalpha())
