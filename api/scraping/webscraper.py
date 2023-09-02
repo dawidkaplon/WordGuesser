@@ -1,15 +1,29 @@
-from bs4 import BeautifulSoup
-from django.db import models
-import requests
+import logging
 import random
 
+import requests
+from bs4 import BeautifulSoup
+from django.db import models
 
-class WebScraper(models.Model):
-    result_word = ''
-    result_definition = ''
+logging.basicConfig(level=logging.INFO,
+                    format='{asctime} - {levelname:<8} {message}',
+                    style='{',
+                    datefmt='%H:%M:%S'
+                    )
+
+
+class WebScraper():
+    """
+    The class responsible for scraping words from the Internet.
+    Once the word is fetched, the word model inherits from 
+    this class and takes care of everything else.
+    """
+    
+    word = models.TextField(default='')
+    definition = models.TextField(default='')
     
     def fetch_data(self, length):
-        """Collect data by passing number as parameter(length of word)"""
+        """Collect data by passing number(length of word) as parameter"""
         
         while True:
             random_letter = random.choice(list('abcdefghijklmnoprstuw'))
@@ -22,21 +36,24 @@ class WebScraper(models.Model):
             try:
                 random_index = random.randint(1, 351)  # Choose random word at selected page (around 350 results per page)
                 
-                self.result_word = soup.find('div', class_="sw3o2JSDU4SEB11F3dUQ").find_all('a')[random_index].text.upper()
+                self.word = soup.find('div', class_="sw3o2JSDU4SEB11F3dUQ")\
+                    .find_all('a')[random_index].text.upper()
 
-                inner_url = soup.find('div', class_="sw3o2JSDU4SEB11F3dUQ").find_all('a')[random_index]['href']
+                inner_url = soup.find('div', class_="sw3o2JSDU4SEB11F3dUQ")\
+                    .find_all('a')[random_index]['href']
                 inner_response = requests.get(inner_url)
                 inner_soup = BeautifulSoup(inner_response.text, "html.parser")
                 
-                self.result_definition = inner_soup.find('div', class_='ESah86zaufmd2_YPdZtq').text.capitalize()
+                self.definition = inner_soup.find('div', class_='ESah86zaufmd2_YPdZtq').text.capitalize()
 
-                print('search for a matching word..')
+                logging.info('search for a matching word..')
                 
-                if self.result_word.isalpha() and len(self.result_word) == length:
-                    print(f"word '{self.result_word}' has been found")
+                if self.word.isalpha() and len(self.word) == length:
+                    logging.info(f"word '{self.word}' has been found")
                     break
                 else:
                     continue   # Start the word search again if the previous word did not meet the criteria
 
             except (AttributeError, IndexError):
                 continue
+    

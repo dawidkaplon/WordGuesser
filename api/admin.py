@@ -1,6 +1,6 @@
 from django.contrib import admin
-from api.scraping.webscraper import WebScraper
+from .models import Word
 
 # Register your models here.
 
-admin.site.register(WebScraper)
+admin.site.register(Word)

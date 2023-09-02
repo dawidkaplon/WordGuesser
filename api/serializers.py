@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from .scraping.webscraper import WebScraper
+from .models import Word
 
 class WordSerializer(serializers.ModelSerializer):
     class Meta:
-        model = WebScraper
-        fields = ['result_word', 'result_definition']
+        model = Word
+        fields = ['id', 'word', 'definition']
