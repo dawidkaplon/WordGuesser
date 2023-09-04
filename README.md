@@ -17,27 +17,54 @@ It enriches the game by providing you with not just a list of words but also the
 
 These instructions will help you set up and run the project on your local machine.
 
-#### Prerequisites
+### Prerequisites
 
 - Windows OS
 - Python installed
-- Docker (if you plan to use Docker)
+- Docker (if you plan to use Docker)<br><br>
 
-#### Installation
+### Installation
 
-1. Create a virtual environment & activate it:
+***1. Create a virtual environment & activate it:***
 
 ```sh
 python -m venv venv
 venv\Scripts\activate
 ```
    
-2. Install project dependencies from requirements.txt:
+***2. Install project dependencies from requirements.txt:***
 ```sh
 pip install -r requirements.txt
 ```
 
-3. Run the local server:
+***3. Set the Secret Key***<br><br>
+In order to run the local server, You have to set new Secret Key in ***settings.py*** file.
+
+- **Access the Python Interactive Shell:**
+   ```sh
+   python manage.py shell
+   ```
+- **Import the get_random_secret_key function:**
+   ```sh
+   from django.core.management.utils import get_random_secret_key
+   ```
+- **Generate the Secret Key in the Terminal using the get_random_secret_key() function:**
+   ```sh
+   >>> get_random_secret_key()
+   'qw^9ej(l4vq%d_06xig$vw+b(-@#00@8l7jlv77=sq5r_sf3nu'
+   ```
+- **Copy and Paste the Key into your SECRET_KEY variable in the settings.py:**
+   ```sh
+   SECRET_KEY = 'qw^9ej(l4vq%d_06xig$vw+b(-@#00@8l7jlv77=sq5r_sf3nu'
+   ```
+
+***4. Make necessary migrations:***
+```sh
+python manage.py makemigrations
+python manage.py migrate
+```
+
+***5. Run the local server:***
 ```sh
 python manage.py runserver
 ```
