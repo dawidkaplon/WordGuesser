@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="/words/get" style="margin-left: 48%">new word</a>
+<div class="boxes-row" style="text-align: center;">
+    {% for num in '12345' %}
+    <form method="POST">
+        {% csrf_token %}
+        <div class="d-flex justify-content-center align-items-center">
+            {% for index in word_length %}
+            <div class="word-box">
+                
+                <!-- Get row and column numbers with actual corresponding values from letters dict -->
+                {% with input_name="row"|add:num|add:"_col"|add:index %}
+                    {% for key, value in letters.items %}
+                        {% if key == input_name %}
+                            <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}" />
+                        {% endif %}
+                    {% endfor %}
+                {% endwith %}
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-success" style="margin-left: 1rem;">Save</button>
+        </div>
+    </form>
+    {% endfor %}
+
+</div>
+<div class="keyboard">
+    <div class="row mt-4">
+        <div class="col-md-6 offset-md-3">
+            <button class="btn btn-outline-secondary btn-lg top" id="buttonQ">Q</button>
+            <button class="btn btn-outline-secondary btn-lg top" id="buttonW">W</button>
+            <button class="btn btn-outline-secondary btn-lg top" id="buttonE">E</button>
+            <button class="btn btn-outline-secondary btn-lg top" id="buttonR">R</button>
+            <button class="btn btn-outline-secondary btn-lg top" id="buttonT">T</button>
+            <button class="btn btn-outline-secondary btn-lg top" id="buttonY">Y</button>
+            <button class="btn btn-outline-secondary btn-lg top" id="buttonU">U</button>
+            <button class="btn btn-outline-secondary btn-lg top" id="buttonI">I</button>
+            <button class="btn btn-outline-secondary btn-lg top" id="buttonO">O</button>
+            <button class="btn btn-outline-secondary btn-lg top" id="buttonP">P</button>
+        </div>
+    </div>
+    <div class="row mt-1">
+        <div class="col-md-6 offset-md-3">
+            <button class="btn btn-outline-secondary btn-lg mid" id="buttonA">A</button>
+            <button class="btn btn-outline-secondary btn-lg mid" id="buttonS">S</button>
+            <button class="btn btn-outline-secondary btn-lg mid" id="buttonD">D</button>
+            <button class="btn btn-outline-secondary btn-lg mid" id="buttonF">F</button>
+            <button class="btn btn-outline-secondary btn-lg mid" id="buttonG">G</button>
+            <button class="btn btn-outline-secondary btn-lg mid" id="buttonH">H</button>
+            <button class="btn btn-outline-secondary btn-lg mid" id="buttonJ">J</button>
+            <button class="btn btn-outline-secondary btn-lg mid" id="buttonK">K</button>
+            <button class="btn btn-outline-secondary btn-lg mid" id="buttonL">L</button>
+        </div>
+    </div>
+    <div class="row mt-1">
+        <div class="col-md-6 offset-md-3">
+            <button class="btn btn-outline-secondary btn-lg down" id="buttonBackspace">&nbsp;&nbsp;⌫&nbsp;&nbsp</button>
+            <button class="btn btn-outline-secondary btn-lg down" id="buttonZ">Z</button>
+            <button class="btn btn-outline-secondary btn-lg down" id="buttonX">X</button>
+            <button class="btn btn-outline-secondary btn-lg down" id="buttonC">C</button>
+            <button class="btn btn-outline-secondary btn-lg down" id="buttonV">V</button>
+            <button class="btn btn-outline-secondary btn-lg down" id="buttonB">B</button>
+            <button class="btn btn-outline-secondary btn-lg down" id="buttonN">N</button>
+            <button class="btn btn-outline-secondary btn-lg down" id="buttonM">M</button>
+            <button class="btn btn-outline-secondary btn-lg down" id="buttonEnter">Enter</button>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

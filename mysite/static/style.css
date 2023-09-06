@@ -5,19 +5,93 @@ body {
 }
 
 
-/* Sidebar */
-.nav-link:hover {
-    background-color: rgb(255,255,255,0.1);
+        /*---- Game screen -----*/
+.boxes-row {
+    margin-top: 4rem;
 }
 
-.sidebar-header{
-    font-weight: 100;
-    color: rgb(156, 208, 230);
-}
-
-
-/* Content */
-.content {
+.row {
     text-align: center;
-    color: black;
 }
+
+
+/* Word boxes and keyboard styles */
+.word-box {
+    width: 50px;
+    height: 50px;
+    background-color: whitesmoke;
+    border: 1px solid silver;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+
+.letter-input {
+    width: 51px;
+    height: 50px;
+    background-color: whitesmoke;
+    border: 2px solid gainsboro; 
+    margin-top: -1px; 
+    margin-left: -1px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 2rem;
+    font-family: Courier New;
+    text-transform: uppercase;
+}
+
+  .letter-input:focus {
+    border: 3px solid grey;
+    outline: none;
+  }
+  
+  /* Input decoration */
+  input:focus {
+    animation-name: zoom;
+    animation-duration: 200ms;
+  }
+  
+  @keyframes zoom {
+    from {
+      
+    }
+    to {
+      transform: scale(1.5);
+    }
+  }
+  
+  .digits {
+    padding: 20px;
+    display: inline-block;
+  }
+
+/* Keyboard rows */
+.mid {
+    width: 64px;
+    height: 50px;
+}
+
+.top {
+    width: 57px;
+    height: 50px;
+    margin-top: 2rem;
+}
+
+.down {
+    width: 60px;
+    height: 50px;
+}
+
+/* Specific buttons */ 
+#buttonW {
+    width: 60px;
+}
+
+#buttonEnter{
+    width: 79px;
+}
+
+#buttonBackspace{
+    width: 79px;
+}
+

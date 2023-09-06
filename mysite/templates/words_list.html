@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Words</h1>
+<ul>
+    {% for word in words %}
+    <li>Word: {{word.word}}<br>Definition: {{word.definition}}<br><br></li>
+    {% endfor %}
+</ul>
+{% endblock %}
