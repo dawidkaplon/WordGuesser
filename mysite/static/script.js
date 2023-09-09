@@ -33,9 +33,9 @@ const buttonMap = {
 
 // Function to simulate a button click
 function simulateButtonClick(button) {
-    const originalBackgroundColor = button.style.backgroundColor;
-    const originalStyleColor = button.style.color;
-    button.style.backgroundColor = '#6C757D';
+    const originalBackgroundColor = '';
+    const originalStyleColor = '';
+    button.style.backgroundColor = 'green';
     button.style.color = 'white';
 
     setTimeout(() => {

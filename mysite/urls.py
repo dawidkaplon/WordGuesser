@@ -3,6 +3,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('game/', views.game, name='game'),
+    path('game/', views.Game.gameplay, name='game'),
     path('404/', views.error404, name='404'),
 ]

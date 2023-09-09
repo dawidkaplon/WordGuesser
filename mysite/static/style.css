@@ -16,7 +16,7 @@ body {
 
 
 /* Word boxes and keyboard styles */
-.word-box {
+.letter-box {
     width: 50px;
     height: 50px;
     background-color: whitesmoke;
@@ -28,16 +28,18 @@ body {
 
 .letter-input {
     width: 51px;
-    height: 50px;
+    height: 51px;
     background-color: whitesmoke;
     border: 2px solid gainsboro; 
     margin-top: -1px; 
     margin-left: -1px;
     border-radius: 5px;
     text-align: center;
-    font-size: 2rem;
-    font-family: Courier New;
+    font-size: 2.7rem;
+    font-family: monospace;
+    font-weight: 100;
     text-transform: uppercase;
+    caret-color: transparent;
 }
 
   .letter-input:focus {
@@ -74,7 +76,7 @@ body {
 .top {
     width: 57px;
     height: 50px;
-    margin-top: 2rem;
+    margin-top: 15rem;
 }
 
 .down {

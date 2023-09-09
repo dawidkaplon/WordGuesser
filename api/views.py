@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -6,6 +6,7 @@ from rest_framework import renderers, views, status, request
 
 from .serializers import WordSerializer
 from .models import Word
+from mysite.views import Game
 
 # Create your views here.
 
@@ -26,12 +27,11 @@ class GetWord(views.APIView):
 
             if request.accepted_renderer.format == "html":
                 word = Word(word=webscraper.word, definition=webscraper.definition)
-                word.save()  # Create a found word and save it in the database
-                return Response(
-                    {"word": word},
-                    template_name="fetched_word.html",
-                    status=status.HTTP_201_CREATED,
-                )
+                # word.save()  # Create a found word and save it in the database
+                
+                request.session['word'] = {'word': word.word, 'definition': word.definition}
+                Game.reset_flag = True
+                return redirect('/game/')
 
         else:
             return JsonResponse(
@@ -54,7 +54,7 @@ class GetWordDetails(views.APIView):
         if request.accepted_renderer.format == "html":
             return Response(
                 {"word": word},
-                template_name="fetched_word.html",
+                template_name="word_details.html",
                 status=status.HTTP_200_OK,
             )
 
