@@ -13,17 +13,17 @@
             {% if active_rows == 1 %}
             
             {% for index in word_length %}
-            <div class="letter-box">
-                <!-- Get rows and column numbers with actual corresponding values from letters dict -->
-                {% with input_name="row1"|add:"col"|add:index %}
-                    {% for key, value in letters.items %}
-                        {% if key == input_name %}
-                            <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
-                                autocomplete="off" data-row="1" data-col="{{index}}" />
-                        {% endif %}
-                    {% endfor %}
-                {% endwith %}
-            </div>
+                <div class="letter-box">
+                    <!-- Get rows and column numbers with actual corresponding values from letters dict -->
+                    {% with input_name="row1"|add:"col"|add:index %}
+                        {% for key, value in letters.items %}
+                            {% if key == input_name %}
+                                <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
+                                    autocomplete="off" data-row="1" data-col="{{index}}" />
+                            {% endif %}
+                        {% endfor %}
+                    {% endwith %}
+                </div>
             {% endfor %}
 
 
@@ -36,14 +36,19 @@
                 {% with input_name="row1"|add:"col"|add:index %}
                     {% for key, value in letters.items %}
                         {% if key == input_name %}
-                            <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
-                                autocomplete="off" data-row="1" data-col="{{index}}" disabled />
+                            {% for k, v in box_colors.items %}
+                                {% if k == input_name %}
+                                    <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
+                                    autocomplete="off" data-row="1" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                {% endif %}
+                            {% endfor %}
                         {% endif %}
                     {% endfor %}
                 {% endwith %}
             </div>
             {% endfor %}
 
+            
             {% for index in word_length %}
             <div class="letter-box">   
                 {% with input_name="row2"|add:"col"|add:index %}
@@ -67,8 +72,12 @@
                 {% with input_name="row1"|add:"col"|add:index %}
                     {% for key, value in letters.items %}
                         {% if key == input_name %}
-                            <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
-                                autocomplete="off" data-row="1" data-col="{{index}}" disabled />
+                            {% for k, v in box_colors.items %}
+                                {% if k == input_name %}
+                                    <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
+                                    autocomplete="off" data-row="1" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                {% endif %}
+                            {% endfor %}
                         {% endif %}
                     {% endfor %}
                 {% endwith %}
@@ -77,11 +86,16 @@
 
             {% for index in word_length %}
             <div class="letter-box">
+                
                 {% with input_name="row2"|add:"col"|add:index %}
                     {% for key, value in letters.items %}
                         {% if key == input_name %}
-                            <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
-                                autocomplete="off" data-row="2" data-col="{{index}}" disabled />
+                            {% for k, v in box_colors.items %}
+                                {% if k == input_name %}
+                                    <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
+                                    autocomplete="off" data-row="2" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                {% endif %}
+                            {% endfor %}
                         {% endif %}
                     {% endfor %}
                 {% endwith %}
@@ -111,8 +125,12 @@
                 {% with input_name="row1"|add:"col"|add:index %}
                     {% for key, value in letters.items %}
                         {% if key == input_name %}
-                            <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
-                                autocomplete="off" data-row="1" data-col="{{index}}" disabled />
+                            {% for k, v in box_colors.items %}
+                                {% if k == input_name %}
+                                    <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
+                                    autocomplete="off" data-row="1" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                {% endif %}
+                            {% endfor %}
                         {% endif %}
                     {% endfor %}
                 {% endwith %}
@@ -121,11 +139,16 @@
 
             {% for index in word_length %}
             <div class="letter-box">
+                
                 {% with input_name="row2"|add:"col"|add:index %}
                     {% for key, value in letters.items %}
                         {% if key == input_name %}
-                            <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
-                                autocomplete="off" data-row="2" data-col="{{index}}" disabled />
+                            {% for k, v in box_colors.items %}
+                                {% if k == input_name %}
+                                    <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
+                                    autocomplete="off" data-row="2" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                {% endif %}
+                            {% endfor %}
                         {% endif %}
                     {% endfor %}
                 {% endwith %}
@@ -133,12 +156,17 @@
             {% endfor %}
 
             {% for index in word_length %}
-            <div class="letter-box">  
+            <div class="letter-box">
+                
                 {% with input_name="row3"|add:"col"|add:index %}
                     {% for key, value in letters.items %}
                         {% if key == input_name %}
-                            <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
-                                autocomplete="off" data-row="3" data-col="{{index}}" disabled />
+                            {% for k, v in box_colors.items %}
+                                {% if k == input_name %}
+                                    <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
+                                    autocomplete="off" data-row="3" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                {% endif %}
+                            {% endfor %}
                         {% endif %}
                     {% endfor %}
                 {% endwith %}
@@ -168,8 +196,12 @@
                 {% with input_name="row1"|add:"col"|add:index %}
                     {% for key, value in letters.items %}
                         {% if key == input_name %}
-                            <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
-                                autocomplete="off" data-row="1" data-col="{{index}}" disabled />
+                            {% for k, v in box_colors.items %}
+                                {% if k == input_name %}
+                                    <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
+                                    autocomplete="off" data-row="1" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                {% endif %}
+                            {% endfor %}
                         {% endif %}
                     {% endfor %}
                 {% endwith %}
@@ -178,11 +210,16 @@
 
             {% for index in word_length %}
             <div class="letter-box">
+                
                 {% with input_name="row2"|add:"col"|add:index %}
                     {% for key, value in letters.items %}
                         {% if key == input_name %}
-                            <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
-                                autocomplete="off" data-row="2" data-col="{{index}}" disabled />
+                            {% for k, v in box_colors.items %}
+                                {% if k == input_name %}
+                                    <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
+                                    autocomplete="off" data-row="2" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                {% endif %}
+                            {% endfor %}
                         {% endif %}
                     {% endfor %}
                 {% endwith %}
@@ -190,12 +227,17 @@
             {% endfor %}
 
             {% for index in word_length %}
-            <div class="letter-box">  
+            <div class="letter-box">
+                
                 {% with input_name="row3"|add:"col"|add:index %}
                     {% for key, value in letters.items %}
                         {% if key == input_name %}
-                            <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
-                                autocomplete="off" data-row="3" data-col="{{index}}" disabled />
+                            {% for k, v in box_colors.items %}
+                                {% if k == input_name %}
+                                    <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
+                                    autocomplete="off" data-row="3" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                {% endif %}
+                            {% endfor %}
                         {% endif %}
                     {% endfor %}
                 {% endwith %}
@@ -203,12 +245,17 @@
             {% endfor %}
 
             {% for index in word_length %}
-            <div class="letter-box">  
+            <div class="letter-box">
+                
                 {% with input_name="row4"|add:"col"|add:index %}
                     {% for key, value in letters.items %}
                         {% if key == input_name %}
-                            <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
-                                autocomplete="off" data-row="4" data-col="{{index}}" disabled />
+                            {% for k, v in box_colors.items %}
+                                {% if k == input_name %}
+                                    <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
+                                    autocomplete="off" data-row="4" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                {% endif %}
+                            {% endfor %}
                         {% endif %}
                     {% endfor %}
                 {% endwith %}
