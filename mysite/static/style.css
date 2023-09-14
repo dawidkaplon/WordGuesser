@@ -2,52 +2,34 @@ body {
     /* background-image: url(https://wallpapers.com/images/featured/white-gradient-background-o0tqqpgs66oz4rfr.webp); */
     background-color: white;
     background-size: cover;
+    overflow-x: hidden;
 }
 
-
-        /*---- Game screen -----*/
-.boxes-row {
-    margin-top: 4rem;
+.rows-container {
+    margin-top: 5rem;
+    margin-bottom: 3rem;
 }
 
-.row {
-    text-align: center;
-}
-
-
-/* Word boxes and keyboard styles */
-.letter-box {
-    width: 50px;
-    height: 50px;
-    background-color: whitesmoke;
-    border: 1px solid silver;
-    border-radius: 5px;
-    margin-left: 5px;
-    margin-top: 10px;
-}
-
-.letter-input {
-    width: 51px;
-    height: 51px;
+.input-field {
+    width: 60px;
+    height: 60px;
     background-color: whitesmoke;
     border: 2px solid gainsboro; 
-    margin-top: -1px; 
-    margin-left: -1px;
+    margin-top: 10px; 
+    margin-left: 5px;
     border-radius: 5px;
     text-align: center;
-    font-size: 2.7rem;
-    font-family: monospace;
-    font-weight: 100;
+    font-size: 3rem;
+    font-family: Arial, Helvetica, sans-serif;
     text-transform: uppercase;
     caret-color: transparent;
 }
 
-  .letter-input:focus {
+  .input-field:focus {
     border: 3px solid grey;
     outline: none;
   }
   
-  /* Input decoration */
   input:focus {
     animation-name: zoom;
     animation-duration: 200ms;
@@ -58,42 +40,43 @@ body {
       
     }
     to {
-      transform: scale(1.5);
+      transform: scale(1.3);
     }
   }
-  
-  .digits {
-    padding: 20px;
-    display: inline-block;
-  }
+
 
 /* Keyboard rows */
-.mid {
-    width: 64px;
-    height: 50px;
+
+.keyboard {
+  text-align: center;
+  margin-top: 1rem;
 }
 
 .top {
-    width: 57px;
-    height: 50px;
-    margin-top: 15rem;
+    width: 63px;
+    height: 57px;
+}
+
+.mid {
+    width: 71px;
+    height: 57px;
 }
 
 .down {
-    width: 60px;
-    height: 50px;
+    width: 67px;
+    height: 57px;
 }
 
-/* Specific buttons */ 
+/* Specific keyboard's buttons */ 
 #buttonW {
-    width: 60px;
+    width: 67px;
 }
 
 #buttonEnter{
-    width: 79px;
+    width: 86px;
 }
 
 #buttonBackspace{
-    width: 79px;
+    width: 86px;
 }
 

@@ -43,7 +43,7 @@ class Game:
                                 else:
                                     Game.box_colors[key] = 'orange'
                             else:
-                                Game.box_colors[key] = 'grey'
+                                Game.box_colors[key] = '#C0C0C0'
                     Game.active_rows += 1
 
             return render(

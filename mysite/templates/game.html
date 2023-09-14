@@ -1,331 +1,374 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 <a href="/words/get" style="margin-left: 48%">new word</a>
-<div class="boxes-row" style="text-align: center; display: block;">
+<div class="rows-container">
     <form method="POST">
         {% csrf_token %}
-        <button class="btn btn-success btn-lg" type="submit">save</button>
-        <div class="d-flex justify-content-center align-items-center">
+        <button class="btn btn-secondary btn-lg" type="submit" hidden>save</button>
             
-            <!-- Current number of rows appearing on the screen -->
-            <!-- ROW 1 -->
+
             {% if active_rows == 1 %}
             
-            {% for index in word_length %}
-                <div class="letter-box">
-                    <!-- Get rows and column numbers with actual corresponding values from letters dict -->
+            <div class="d-flex justify-content-center align-items-center">
+                <!-- Get row and column numbers with actual corresponding values from letters dict -->
+                {% for index in word_length %}
+                        {% with input_name="row1"|add:"col"|add:index %}
+                            {% for key, value in letters.items %}
+                                {% if key == input_name %}
+                                    <input type="text" class="input-field" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
+                                    autocomplete="off" data-row="1" data-col="{{index}}" autofocus />
+                                {% endif %}
+                            {% endfor %}
+                        {% endwith %}
+                {% endfor %}
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center">
+                {% for index in word_length %}
+                    <input class="input-field" disabled />
+                {% endfor %}
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center">
+                {% for index in word_length %}
+                    <input class="input-field" disabled />
+                {% endfor %}
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center">
+                {% for index in word_length %}
+                    <input class="input-field" disabled />
+                {% endfor %}
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center">
+                {% for index in word_length %}
+                    <input class="input-field" disabled />
+                {% endfor %}
+            </div>
+
+
+            {% elif active_rows == 2 %}
+            
+            <div class="d-flex justify-content-center align-items-center">
+                {% for index in word_length %}
                     {% with input_name="row1"|add:"col"|add:index %}
                         {% for key, value in letters.items %}
                             {% if key == input_name %}
-                                <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
-                                    autocomplete="off" data-row="1" data-col="{{index}}" />
+                                {% for k, v in box_colors.items %}
+                                    {% if k == input_name %}
+                                        <input class="input-field" name="{{ input_name }}" value="{{ value.upper }}"
+                                        data-row="1" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                    {% endif %}
+                                {% endfor %}
                             {% endif %}
                         {% endfor %}
                     {% endwith %}
-                </div>
-            {% endfor %}
-
-
-            <!-- ROW 2 -->
-            {% elif active_rows == 2 %}
-            
-            {% for index in word_length %}
-            <div class="letter-box">
-                
-                {% with input_name="row1"|add:"col"|add:index %}
-                    {% for key, value in letters.items %}
-                        {% if key == input_name %}
-                            {% for k, v in box_colors.items %}
-                                {% if k == input_name %}
-                                    <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
-                                    autocomplete="off" data-row="1" data-col="{{index}}" style="background-color: {{v}}" disabled />
-                                {% endif %}
-                            {% endfor %}
-                        {% endif %}
-                    {% endfor %}
-                {% endwith %}
+                {% endfor %}
             </div>
-            {% endfor %}
 
-            
-            {% for index in word_length %}
-            <div class="letter-box">   
-                {% with input_name="row2"|add:"col"|add:index %}
-                    {% for key, value in letters.items %}
-                        {% if key == input_name %}
-                            <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
-                                autocomplete="off" data-row="2" data-col="{{index}}" />
-                        {% endif %}
-                    {% endfor %}
-                {% endwith %}
+            <div class="d-flex justify-content-center align-items-center">
+                {% for index in word_length %}   
+                    {% with input_name="row2"|add:"col"|add:index %}
+                        {% for key, value in letters.items %}
+                            {% if key == input_name %}
+                                <input type="text" class="input-field" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
+                                autocomplete="off" data-row="2" data-col="{{index}}" autofocus />
+                            {% endif %}
+                        {% endfor %}
+                    {% endwith %}
+                {% endfor %}
             </div>
-            {% endfor %}
+
+            <div class="d-flex justify-content-center align-items-center">
+                {% for index in word_length %}
+                    <input class="input-field" disabled />
+                {% endfor %}
+            </div>
             
+            <div class="d-flex justify-content-center align-items-center">
+                {% for index in word_length %}
+                    <input class="input-field" disabled />
+                {% endfor %}
+            </div>
             
-            <!-- ROW 3 -->
+            <div class="d-flex justify-content-center align-items-center">
+                {% for index in word_length %}
+                    <input class="input-field" disabled />
+                {% endfor %}
+            </div>
+            
+
             {% elif active_rows == 3 %}
             
-            {% for index in word_length %}
-            <div class="letter-box">
-                
-                {% with input_name="row1"|add:"col"|add:index %}
-                    {% for key, value in letters.items %}
-                        {% if key == input_name %}
-                            {% for k, v in box_colors.items %}
-                                {% if k == input_name %}
-                                    <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
-                                    autocomplete="off" data-row="1" data-col="{{index}}" style="background-color: {{v}}" disabled />
-                                {% endif %}
-                            {% endfor %}
-                        {% endif %}
-                    {% endfor %}
-                {% endwith %}
+            <div class="d-flex justify-content-center align-items-center">
+                {% for index in word_length %}
+                    {% with input_name="row1"|add:"col"|add:index %}
+                        {% for key, value in letters.items %}
+                            {% if key == input_name %}
+                                {% for k, v in box_colors.items %}
+                                    {% if k == input_name %}
+                                        <input class="input-field" name="{{ input_name }}" value="{{ value.upper }}"
+                                        data-row="1" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endwith %}
+                {% endfor %}
             </div>
-            {% endfor %}
 
-            {% for index in word_length %}
-            <div class="letter-box">
-                
-                {% with input_name="row2"|add:"col"|add:index %}
-                    {% for key, value in letters.items %}
-                        {% if key == input_name %}
-                            {% for k, v in box_colors.items %}
-                                {% if k == input_name %}
-                                    <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
-                                    autocomplete="off" data-row="2" data-col="{{index}}" style="background-color: {{v}}" disabled />
-                                {% endif %}
-                            {% endfor %}
-                        {% endif %}
-                    {% endfor %}
-                {% endwith %}
+            <div class="d-flex justify-content-center align-items-center">
+                {% for index in word_length %}
+                    {% with input_name="row2"|add:"col"|add:index %}
+                        {% for key, value in letters.items %}
+                            {% if key == input_name %}
+                                {% for k, v in box_colors.items %}
+                                    {% if k == input_name %}
+                                        <input class="input-field" name="{{ input_name }}" value="{{ value.upper }}"
+                                        data-row="2" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endwith %}
+                {% endfor %}
             </div>
-            {% endfor %}
 
-            {% for index in word_length %}
-            <div class="letter-box">  
-                {% with input_name="row3"|add:"col"|add:index %}
-                    {% for key, value in letters.items %}
-                        {% if key == input_name %}
-                            <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
-                                autocomplete="off" data-row="3" data-col="{{index}}" />
-                        {% endif %}
-                    {% endfor %}
-                {% endwith %}
+            <div class="d-flex justify-content-center align-items-center">
+                {% for index in word_length %}  
+                    {% with input_name="row3"|add:"col"|add:index %}
+                        {% for key, value in letters.items %}
+                            {% if key == input_name %}
+                                <input type="text" class="input-field" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
+                                autocomplete="off" data-row="3" data-col="{{index}}" autofocus/>
+                            {% endif %}
+                        {% endfor %}
+                    {% endwith %}
+                {% endfor %}
             </div>
-            {% endfor %}
             
+            <div class="d-flex justify-content-center align-items-center">
+                {% for index in word_length %}
+                    <input class="input-field" disabled />
+                {% endfor %}
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center">
+                {% for index in word_length %}
+                    <input class="input-field" disabled />
+                {% endfor %}
+            </div>
             
-            <!-- ROW 4 -->
+
             {% elif active_rows == 4 %}
             
-            {% for index in word_length %}
-            <div class="letter-box">
-                
-                {% with input_name="row1"|add:"col"|add:index %}
-                    {% for key, value in letters.items %}
-                        {% if key == input_name %}
-                            {% for k, v in box_colors.items %}
-                                {% if k == input_name %}
-                                    <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
-                                    autocomplete="off" data-row="1" data-col="{{index}}" style="background-color: {{v}}" disabled />
-                                {% endif %}
-                            {% endfor %}
-                        {% endif %}
-                    {% endfor %}
-                {% endwith %}
+            <div class="d-flex justify-content-center align-items-center">
+                {% for index in word_length %}
+                    {% with input_name="row1"|add:"col"|add:index %}
+                        {% for key, value in letters.items %}
+                            {% if key == input_name %}
+                                {% for k, v in box_colors.items %}
+                                    {% if k == input_name %}
+                                        <input class="input-field" name="{{ input_name }}" value="{{ value.upper }}"
+                                        data-row="1" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endwith %}
+                {% endfor %}
             </div>
-            {% endfor %}
 
-            {% for index in word_length %}
-            <div class="letter-box">
-                
-                {% with input_name="row2"|add:"col"|add:index %}
-                    {% for key, value in letters.items %}
-                        {% if key == input_name %}
-                            {% for k, v in box_colors.items %}
-                                {% if k == input_name %}
-                                    <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
-                                    autocomplete="off" data-row="2" data-col="{{index}}" style="background-color: {{v}}" disabled />
-                                {% endif %}
-                            {% endfor %}
-                        {% endif %}
-                    {% endfor %}
-                {% endwith %}
+            <div class="d-flex justify-content-center align-items-center">
+                {% for index in word_length %}
+                    {% with input_name="row2"|add:"col"|add:index %}
+                        {% for key, value in letters.items %}
+                            {% if key == input_name %}
+                                {% for k, v in box_colors.items %}
+                                    {% if k == input_name %}
+                                        <input class="input-field" name="{{ input_name }}" value="{{ value.upper }}"
+                                        data-row="2" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endwith %}
+                {% endfor %}
             </div>
-            {% endfor %}
 
-            {% for index in word_length %}
-            <div class="letter-box">
-                
-                {% with input_name="row3"|add:"col"|add:index %}
-                    {% for key, value in letters.items %}
-                        {% if key == input_name %}
-                            {% for k, v in box_colors.items %}
-                                {% if k == input_name %}
-                                    <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
-                                    autocomplete="off" data-row="3" data-col="{{index}}" style="background-color: {{v}}" disabled />
-                                {% endif %}
-                            {% endfor %}
-                        {% endif %}
-                    {% endfor %}
-                {% endwith %}
+            <div class="d-flex justify-content-center align-items-center">
+                {% for index in word_length %}
+                    {% with input_name="row3"|add:"col"|add:index %}
+                        {% for key, value in letters.items %}
+                            {% if key == input_name %}
+                                {% for k, v in box_colors.items %}
+                                    {% if k == input_name %}
+                                        <input class="input-field" name="{{ input_name }}" value="{{ value.upper }}"
+                                        data-row="3" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endwith %}
+                {% endfor %}
             </div>
-            {% endfor %}
 
-            {% for index in word_length %}
-            <div class="letter-box">  
-                {% with input_name="row4"|add:"col"|add:index %}
-                    {% for key, value in letters.items %}
-                        {% if key == input_name %}
-                            <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
-                                autocomplete="off" data-row="4" data-col="{{index}}" />
-                        {% endif %}
-                    {% endfor %}
-                {% endwith %}
+            <div class="d-flex justify-content-center align-items-center">
+                {% for index in word_length %}  
+                    {% with input_name="row4"|add:"col"|add:index %}
+                        {% for key, value in letters.items %}
+                            {% if key == input_name %}
+                                <input type="text" class="input-field" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
+                                autocomplete="off" data-row="4" data-col="{{index}}" autofocus/>
+                            {% endif %}
+                        {% endfor %}
+                    {% endwith %}
+                {% endfor %}
             </div>
-            {% endfor %}
+
+            <div class="d-flex justify-content-center align-items-center">
+                {% for index in word_length %}
+                    <input class="input-field" disabled />
+                {% endfor %}
+            </div>
 
             
-            <!-- ROW 5 -->
             {% elif active_rows == 5 %}
             
-            {% for index in word_length %}
-            <div class="letter-box">
-                
-                {% with input_name="row1"|add:"col"|add:index %}
-                    {% for key, value in letters.items %}
-                        {% if key == input_name %}
-                            {% for k, v in box_colors.items %}
-                                {% if k == input_name %}
-                                    <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
-                                    autocomplete="off" data-row="1" data-col="{{index}}" style="background-color: {{v}}" disabled />
-                                {% endif %}
-                            {% endfor %}
-                        {% endif %}
-                    {% endfor %}
-                {% endwith %}
+            <div class="d-flex justify-content-center align-items-center">
+                {% for index in word_length %}
+                    {% with input_name="row1"|add:"col"|add:index %}
+                        {% for key, value in letters.items %}
+                            {% if key == input_name %}
+                                {% for k, v in box_colors.items %}
+                                    {% if k == input_name %}
+                                        <input class="input-field" name="{{ input_name }}" value="{{ value.upper }}"
+                                        data-row="1" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endwith %}
+                {% endfor %}
             </div>
-            {% endfor %}
 
-            {% for index in word_length %}
-            <div class="letter-box">
-                
-                {% with input_name="row2"|add:"col"|add:index %}
-                    {% for key, value in letters.items %}
-                        {% if key == input_name %}
-                            {% for k, v in box_colors.items %}
-                                {% if k == input_name %}
-                                    <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
-                                    autocomplete="off" data-row="2" data-col="{{index}}" style="background-color: {{v}}" disabled />
-                                {% endif %}
-                            {% endfor %}
-                        {% endif %}
-                    {% endfor %}
-                {% endwith %}
+            <div class="d-flex justify-content-center align-items-center">
+                {% for index in word_length %}
+                    {% with input_name="row2"|add:"col"|add:index %}
+                        {% for key, value in letters.items %}
+                            {% if key == input_name %}
+                                {% for k, v in box_colors.items %}
+                                    {% if k == input_name %}
+                                        <input class="input-field" name="{{ input_name }}" value="{{ value.upper }}"
+                                        data-row="2" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endwith %}
+                {% endfor %}
             </div>
-            {% endfor %}
 
-            {% for index in word_length %}
-            <div class="letter-box">
-                
-                {% with input_name="row3"|add:"col"|add:index %}
-                    {% for key, value in letters.items %}
-                        {% if key == input_name %}
-                            {% for k, v in box_colors.items %}
-                                {% if k == input_name %}
-                                    <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
-                                    autocomplete="off" data-row="3" data-col="{{index}}" style="background-color: {{v}}" disabled />
-                                {% endif %}
-                            {% endfor %}
-                        {% endif %}
-                    {% endfor %}
-                {% endwith %}
+            <div class="d-flex justify-content-center align-items-center">
+                {% for index in word_length %}
+                    {% with input_name="row3"|add:"col"|add:index %}
+                        {% for key, value in letters.items %}
+                            {% if key == input_name %}
+                                {% for k, v in box_colors.items %}
+                                    {% if k == input_name %}
+                                        <input class="input-field" name="{{ input_name }}" value="{{ value.upper }}"
+                                        data-row="3" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endwith %}
+                {% endfor %}
             </div>
-            {% endfor %}
 
-            {% for index in word_length %}
-            <div class="letter-box">
-                
-                {% with input_name="row4"|add:"col"|add:index %}
-                    {% for key, value in letters.items %}
-                        {% if key == input_name %}
-                            {% for k, v in box_colors.items %}
-                                {% if k == input_name %}
-                                    <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
-                                    autocomplete="off" data-row="4" data-col="{{index}}" style="background-color: {{v}}" disabled />
-                                {% endif %}
-                            {% endfor %}
-                        {% endif %}
-                    {% endfor %}
-                {% endwith %}
+            <div class="d-flex justify-content-center align-items-center">
+                {% for index in word_length %}
+                    {% with input_name="row4"|add:"col"|add:index %}
+                        {% for key, value in letters.items %}
+                            {% if key == input_name %}
+                                {% for k, v in box_colors.items %}
+                                    {% if k == input_name %}
+                                        <input class="input-field" name="{{ input_name }}" value="{{ value.upper }}"
+                                        data-row="4" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endwith %}
+                {% endfor %}
             </div>
-            {% endfor %}
 
-            {% for index in word_length %}
-            <div class="letter-box">  
-                {% with input_name="row5"|add:"col"|add:index %}
-                    {% for key, value in letters.items %}
-                        {% if key == input_name %}
-                            <input type="text" class="letter-input" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
-                                autocomplete="off" data-row="5" data-col="{{index}}" />
-                        {% endif %}
-                    {% endfor %}
-                {% endwith %}
+            <div class="d-flex justify-content-center align-items-center">
+                {% for index in word_length %}  
+                    {% with input_name="row5"|add:"col"|add:index %}
+                        {% for key, value in letters.items %}
+                            {% if key == input_name %}
+                                <input type="text" class="input-field" name="{{ input_name }}" maxlength="1" value="{{ value.upper }}"
+                                autocomplete="off" data-row="5" data-col="{{index}}" autofocus />
+                            {% endif %}
+                        {% endfor %}
+                    {% endwith %}
+                {% endfor %}
             </div>
-            {% endfor %}
-
+            
             {% endif %}
-        </div>
-        
     </form>
-
 </div>
+
 <div class="keyboard">
     <div class="row mt-4">
         <div class="col-md-6 offset-md-3">
-            <button class="btn btn-outline-success btn-lg top" id="buttonQ">Q</button>
-            <button class="btn btn-outline-success btn-lg top" id="buttonW">W</button>
-            <button class="btn btn-outline-success btn-lg top" id="buttonE">E</button>
-            <button class="btn btn-outline-success btn-lg top" id="buttonR">R</button>
-            <button class="btn btn-outline-success btn-lg top" id="buttonT">T</button>
-            <button class="btn btn-outline-success btn-lg top" id="buttonY">Y</button>
-            <button class="btn btn-outline-success btn-lg top" id="buttonU">U</button>
-            <button class="btn btn-outline-success btn-lg top" id="buttonI">I</button>
-            <button class="btn btn-outline-success btn-lg top" id="buttonO">O</button>
-            <button class="btn btn-outline-success btn-lg top" id="buttonP">P</button>
+            <button class="btn btn-outline-secondary btn-lg top" id="buttonQ">Q</button>
+            <button class="btn btn-outline-secondary btn-lg top" id="buttonW">W</button>
+            <button class="btn btn-outline-secondary btn-lg top" id="buttonE">E</button>
+            <button class="btn btn-outline-secondary btn-lg top" id="buttonR">R</button>
+            <button class="btn btn-outline-secondary btn-lg top" id="buttonT">T</button>
+            <button class="btn btn-outline-secondary btn-lg top" id="buttonY">Y</button>
+            <button class="btn btn-outline-secondary btn-lg top" id="buttonU">U</button>
+            <button class="btn btn-outline-secondary btn-lg top" id="buttonI">I</button>
+            <button class="btn btn-outline-secondary btn-lg top" id="buttonO">O</button>
+            <button class="btn btn-outline-secondary btn-lg top" id="buttonP">P</button>
         </div>
     </div>
     <div class="row mt-1">
         <div class="col-md-6 offset-md-3">
-            <button class="btn btn-outline-success btn-lg mid" id="buttonA">A</button>
-            <button class="btn btn-outline-success btn-lg mid" id="buttonS">S</button>
-            <button class="btn btn-outline-success btn-lg mid" id="buttonD">D</button>
-            <button class="btn btn-outline-success btn-lg mid" id="buttonF">F</button>
-            <button class="btn btn-outline-success btn-lg mid" id="buttonG">G</button>
-            <button class="btn btn-outline-success btn-lg mid" id="buttonH">H</button>
-            <button class="btn btn-outline-success btn-lg mid" id="buttonJ">J</button>
-            <button class="btn btn-outline-success btn-lg mid" id="buttonK">K</button>
-            <button class="btn btn-outline-success btn-lg mid" id="buttonL">L</button>
+            <button class="btn btn-outline-secondary btn-lg mid" id="buttonA">A</button>
+            <button class="btn btn-outline-secondary btn-lg mid" id="buttonS">S</button>
+            <button class="btn btn-outline-secondary btn-lg mid" id="buttonD">D</button>
+            <button class="btn btn-outline-secondary btn-lg mid" id="buttonF">F</button>
+            <button class="btn btn-outline-secondary btn-lg mid" id="buttonG">G</button>
+            <button class="btn btn-outline-secondary btn-lg mid" id="buttonH">H</button>
+            <button class="btn btn-outline-secondary btn-lg mid" id="buttonJ">J</button>
+            <button class="btn btn-outline-secondary btn-lg mid" id="buttonK">K</button>
+            <button class="btn btn-outline-secondary btn-lg mid" id="buttonL">L</button>
         </div>
     </div>
     <div class="row mt-1">
         <div class="col-md-6 offset-md-3">
-            <button class="btn btn-outline-success btn-lg down" id="buttonBackspace">&nbsp;&nbsp;⌫&nbsp;&nbsp</button>
-            <button class="btn btn-outline-success btn-lg down" id="buttonZ">Z</button>
-            <button class="btn btn-outline-success btn-lg down" id="buttonX">X</button>
-            <button class="btn btn-outline-success btn-lg down" id="buttonC">C</button>
-            <button class="btn btn-outline-success btn-lg down" id="buttonV">V</button>
-            <button class="btn btn-outline-success btn-lg down" id="buttonB">B</button>
-            <button class="btn btn-outline-success btn-lg down" id="buttonN">N</button>
-            <button class="btn btn-outline-success btn-lg down" id="buttonM">M</button>
-            <button class="btn btn-outline-success btn-lg down" id="buttonEnter">Enter</button>
+            <button class="btn btn-outline-secondary btn-lg down" id="buttonBackspace">&nbsp⌫&nbsp</button>
+            <button class="btn btn-outline-secondary btn-lg down" id="buttonZ">Z</button>
+            <button class="btn btn-outline-secondary btn-lg down" id="buttonX">X</button>
+            <button class="btn btn-outline-secondary btn-lg down" id="buttonC">C</button>
+            <button class="btn btn-outline-secondary btn-lg down" id="buttonV">V</button>
+            <button class="btn btn-outline-secondary btn-lg down" id="buttonB">B</button>
+            <button class="btn btn-outline-secondary btn-lg down" id="buttonN">N</button>
+            <button class="btn btn-outline-secondary btn-lg down" id="buttonM">M</button>
+            <button class="btn btn-outline-secondary btn-lg down" id="buttonEnter">Enter</button>
         </div>
     </div>
 </div>
 
+
 <script>
-    var letterInputs = document.querySelectorAll('.letter-input');
+    var letterInputs = document.querySelectorAll('.input-field');
 
     // Attach event listeners to each input-box
     letterInputs.forEach(function (input, index) {
@@ -358,7 +401,7 @@
         var nextRow = currentRow;
 
         // Check if the next column exceeds the maximum columns in a row
-        if (nextCol > 10) { // Change this number to match your maximum columns per row
+        if (nextCol > 10) {
             nextCol = 1;
             nextRow = parseInt(currentRow) + 1;
         }
@@ -376,7 +419,7 @@
 
         // Check if the previous column is less than 1
         if (prevCol < 1) {
-            prevCol = 3; // Change this number to match your maximum columns per row
+            prevCol = 10;
             prevRow = parseInt(currentRow) - 1;
         }
 
