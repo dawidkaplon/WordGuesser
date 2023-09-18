@@ -318,6 +318,94 @@
                     {% endwith %}
                 {% endfor %}
             </div>
+
+            
+            {% elif active_rows == 6 %}
+            
+            <div class="d-flex justify-content-center align-items-center">
+                {% for index in word_length %}
+                    {% with input_name="row1"|add:"col"|add:index %}
+                        {% for key, value in letters.items %}
+                            {% if key == input_name %}
+                                {% for k, v in box_colors.items %}
+                                    {% if k == input_name %}
+                                        <input class="input-field" name="{{ input_name }}" value="{{ value.upper }}"
+                                        data-row="1" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endwith %}
+                {% endfor %}
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center">
+                {% for index in word_length %}
+                    {% with input_name="row2"|add:"col"|add:index %}
+                        {% for key, value in letters.items %}
+                            {% if key == input_name %}
+                                {% for k, v in box_colors.items %}
+                                    {% if k == input_name %}
+                                        <input class="input-field" name="{{ input_name }}" value="{{ value.upper }}"
+                                        data-row="2" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endwith %}
+                {% endfor %}
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center">
+                {% for index in word_length %}
+                    {% with input_name="row3"|add:"col"|add:index %}
+                        {% for key, value in letters.items %}
+                            {% if key == input_name %}
+                                {% for k, v in box_colors.items %}
+                                    {% if k == input_name %}
+                                        <input class="input-field" name="{{ input_name }}" value="{{ value.upper }}"
+                                        data-row="3" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endwith %}
+                {% endfor %}
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center">
+                {% for index in word_length %}
+                    {% with input_name="row4"|add:"col"|add:index %}
+                        {% for key, value in letters.items %}
+                            {% if key == input_name %}
+                                {% for k, v in box_colors.items %}
+                                    {% if k == input_name %}
+                                        <input class="input-field" name="{{ input_name }}" value="{{ value.upper }}"
+                                        data-row="4" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endwith %}
+                {% endfor %}
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center">
+                {% for index in word_length %}
+                    {% with input_name="row5"|add:"col"|add:index %}
+                        {% for key, value in letters.items %}
+                            {% if key == input_name %}
+                                {% for k, v in box_colors.items %}
+                                    {% if k == input_name %}
+                                        <input class="input-field" name="{{ input_name }}" value="{{ value.upper }}"
+                                        data-row="5" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endwith %}
+                {% endfor %}
+            </div>
             
             {% endif %}
     </form>

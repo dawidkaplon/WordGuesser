@@ -1,12 +1,5 @@
-body {
-    /* background-image: url(https://wallpapers.com/images/featured/white-gradient-background-o0tqqpgs66oz4rfr.webp); */
-    background-color: white;
-    background-size: cover;
-    overflow-x: hidden;
-}
-
 .rows-container {
-    margin-top: 5rem;
+    margin-top: 3rem;
     margin-bottom: 3rem;
 }
 
@@ -26,7 +19,7 @@ body {
 }
 
   .input-field:focus {
-    border: 3px solid grey;
+    border: 3px solid black;
     outline: none;
   }
   
