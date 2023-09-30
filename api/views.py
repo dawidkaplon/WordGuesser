@@ -14,9 +14,9 @@ from mysite.views import Game
 class GetWord(views.APIView):
     renderer_classes = [renderers.JSONRenderer, renderers.TemplateHTMLRenderer]
 
-    def get(self, request):
+    def get(self, request, length):
         webscraper = Word()
-        webscraper.fetch_data(6)
+        webscraper.fetch_data(length)
 
         if webscraper.word is not None:
             if request.accepted_renderer.format == "json":

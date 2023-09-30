@@ -1,7 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div style="text-align: center; text-decoration: underline;">
-    <a href="words/get"> <strong>words/get</strong> >> fetch the word >> play the game</a>
-</div>
+
+<form method="POST">
+    {% csrf_token %}
+    <div class="input-group mb-2">
+        <button class="btn btn-secondary" type="submit">Play</button>
+        <select class="form-select" id="inputGroupSelect03" name="word_length" aria-label="Example select with button addon">
+            <option selected>Word's length</option>
+            <option value="5" name="five-letters">5 letters</option>
+            <option value="6" name="six-letters">6 letters</option>
+            <option value="7" name="seven-letters">7 letters</option>
+            <option value="8" name="eight-letters">8 letters</option>
+        </select>
+    </div>
+
+</form>
+
+<style>
+    .input-group {
+        margin-left: 35%;
+        width: 330px;
+        height: 50px;
+    }
+
+</style>
 {% endblock %}
+

@@ -4,6 +4,10 @@ from django.shortcuts import render, redirect
 
 
 def index(request):
+    if request.method == 'POST':
+        length = request.POST.get('word_length')
+        if length not in (None, "Word's length"):
+            return redirect(f'words/get/{length}')
     return render(request, "index.html")
 
 class Game:
@@ -12,10 +16,10 @@ class Game:
     box_colors = {}
     keyboard_colors = {}
     
-    win = 0  
+    win = 1
     """
     Kind of flag to check if user correctly guessed all letters.
-    If at least one letter is wrong, this variable will be changed to 1
+    If at least one letter is wrong, this variable will be changed to 0
     """
     
 
@@ -29,7 +33,7 @@ class Game:
             if Game.reset_flag:
                 Game.active_rows = 1
                 Game.box_colors = {}
-                Game.win = 0
+                Game.win = 1
                 letters = {}
                 for row in "12345":
                     for index in word_length:
@@ -38,7 +42,7 @@ class Game:
                 
             if request.method == "POST":
                 Game.reset_flag = False  # Avoid clearing the letters dict if user already made a guess
-                Game.win = 0
+                Game.win = 1
                 if "" in request.POST.values():
                     pass
                 else:
@@ -54,14 +58,14 @@ class Game:
                                 else:
                                     Game.box_colors[key] = 'orange'
                                     Game.keyboard_colors[value] = 'orange'
-                                    Game.win = 1
+                                    Game.win = 0
                             else:
                                 Game.box_colors[key] = '#C0C0C0'
                                 Game.keyboard_colors[value] = 'grey'
-                                Game.win = 1
+                                Game.win = 0
                     Game.active_rows += 1
                     
-                    if Game.win == 0:
+                    if Game.win == 1:
                         """Win case"""
                         return render(
                             request, 

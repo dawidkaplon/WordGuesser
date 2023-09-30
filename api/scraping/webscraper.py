@@ -1,9 +1,9 @@
-import logging
-import random
-
-import requests
 from bs4 import BeautifulSoup
 from django.db import models
+
+import logging
+import random
+import requests
 
 logging.basicConfig(
     level=logging.INFO,
