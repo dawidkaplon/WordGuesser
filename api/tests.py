@@ -57,9 +57,48 @@ class WordTest(TestCase):
         """
 
         test_word = Word.objects.get(id=random_id)
-        response = client.get(f"/words/get/{random_id}")
+        response = client.get(f"/words/details/{random_id}")
         self.assertEqual(response.json()["word"]["word"], test_word.word)
 
+    def test_correct_colors(self):
+        """
+        Verify that input background-color is correct
+        after guess (green, orange or grey).
+        """
+        active_rows = 1
+        word = 'TEST'
+        letters = {}
+        box_colors = {}
+        values = {
+             f'row{active_rows}col1': 'E', 
+             f'row{active_rows}col2': 'K',
+             f'row{active_rows}col3': 'S',
+             f'row{active_rows}col1': 'P',
+             }
+
+        for key, value in values.items():
+            letters[key] = value.upper()
+        for key, value in letters.items():
+            if f'row{active_rows}' in key:
+                if value in word:
+                    if word[int(key[-1]) - 1] == value:
+                        box_colors[key] = 'lightgreen'
+                    else:
+                        box_colors[key] = 'orange'
+                else:
+                    box_colors[key] = '#C0C0C0'
+        
+        self.assertDictEqual(
+            {
+             f'row{active_rows}col1': 'orange', 
+             f'row{active_rows}col2': '#C0C0C0',
+             f'row{active_rows}col3': 'lightgreen',
+             f'row{active_rows}col1': '#C0C0C0',
+             },
+             box_colors
+        )
+
+    
 
 class URLTest(TestCase):
     global client, WebScraper
@@ -67,17 +106,15 @@ class URLTest(TestCase):
     client = APIClient()
 
     def test_fetch_word(self):
-        WebScraper.test_flag = True  # Set a flag to search for words between 3 and 8 letters long instead of just 5.
-        response = client.get("/words/get", format="json")
-        WebScraper.test_flag = False
+        response = client.get("/words/get/length:6", format="json")
         self.assertEqual(response.status_code, 201)
 
     def test_get_words_list(self):
-        response = client.get("/words/list/get", format="json")
+        response = client.get("/words/list", format="json")
         self.assertEqual(response.status_code, 200)
 
     def test_get_word_details(self):
-        response = client.get("/words/get/1")
+        response = client.get("/words/details/1")
         self.assertEqual(response.status_code, 200)
 
     def test_add_word(self):
