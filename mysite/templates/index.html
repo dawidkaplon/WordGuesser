@@ -4,11 +4,11 @@
 
 <form method="POST">
     {% csrf_token %}
-    <div class="input-group mb-2">
+    <div class="input-group mb-2" style="margin-left: 35%; width: 330px; height: 50px;">
         <button class="btn btn-secondary" type="submit">Play</button>
-        <select class="form-select" id="inputGroupSelect03" name="word_length" aria-label="Example select with button addon">
-            <option selected>Word's length</option>
-            <option value="5" name="five-letters">5 letters</option>
+        <select class="form-select" id="inputGroupSelect03" name="word_length"
+            aria-label="Example select with button addon">
+            <option selected value="5" name="five-letters">5 letters</option>
             <option value="6" name="six-letters">6 letters</option>
             <option value="7" name="seven-letters">7 letters</option>
             <option value="8" name="eight-letters">8 letters</option>
@@ -17,13 +17,4 @@
 
 </form>
 
-<style>
-    .input-group {
-        margin-left: 35%;
-        width: 330px;
-        height: 50px;
-    }
-
-</style>
 {% endblock %}
-

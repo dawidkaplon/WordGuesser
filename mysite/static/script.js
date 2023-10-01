@@ -35,7 +35,7 @@ const buttonMap = {
 function simulateButtonClick(button) {
     const originalBackgroundColor = '';
     const originalStyleColor = '';
-    button.style.backgroundColor = 'grey';
+    button.style.backgroundColor = '#C0C0C0';
     button.style.color = 'white';
 
     setTimeout(() => {
@@ -47,11 +47,20 @@ function simulateButtonClick(button) {
 
 
 document.addEventListener('keydown', function (event) {
-    const key = event.key.toUpperCase();
+  const key = event.key.toUpperCase();
 
-    if (buttonMap[key]) {
-        simulateButtonClick(buttonMap[key]);
-    }
+  if (buttonMap[key]) {
+      const button = buttonMap[key];
+      const backgroundColor = button.style.backgroundColor;
+
+      // Check if the background color is not already changed
+      if (backgroundColor !== '' && backgroundColor !== '#C0C0C0') {
+          // The background color is already changed, so do nothing
+          return;
+      }
+
+      simulateButtonClick(button);
+  }
 });
 
 document.querySelector(".digits").addEventListener("input", function(e){
