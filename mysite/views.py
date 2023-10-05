@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
+
 from string import ascii_letters
+import enchant
 
 # Create your views here.
 
@@ -29,6 +32,8 @@ class Game:
     def gameplay(request):
         global letters
 
+        # gb_dict = enchant.Dict("en_GB")
+
         try:
             word = request.session["word"]
             word_length = [str(num + 1) for num in range(len(word["word"]))]
@@ -42,17 +47,23 @@ class Game:
                 letters = {}
                 for row in "12345":
                     for index in word_length:
-                        # If user didnt guess any letter yet, input values should be an empty strings
+                        # If user didnt guess any letter yet, input values should be an empty strings.
                         letters[f"row{row}col{index}"] = ""
 
             if request.method == "POST":
-                Game.reset_flag = False  # Avoid clearing the letters dict if user already made a guess
+                Game.reset_flag = False  # Avoid clearing the letters dict if user already made a guess.
                 Game.win = 1
 
-                if ' ' in request.POST.values():
-                    pass
-                if any(list(value not in ascii_letters for value in list(request.POST.values())[1:])):
-                    pass
+                if '' in list(request.POST.values()):
+                    messages.warning(request, 'Given word is not long enough!')
+
+                elif any(list(value not in ascii_letters for value in list(request.POST.values())[1:])):
+                    messages.warning(request, 'Given value is not a letter!')
+                    
+                # elif not gb_dict.check(''.join(list(request.POST.values())[1:])):
+                # # Check if inputted-word is present in english dictionary.
+                #     messages.warning(request, 'Not an english word!')
+                
                 else:
                     for key, value in request.POST.items():
                         if "token" not in key:
@@ -65,13 +76,16 @@ class Game:
                             
                             if value in word["word"]:
                                 if word["word"][int(key[-1]) - 1] == value:
+                                    """Letter is correctly guessed (correct index)"""
                                     Game.box_colors[key] = "lightgreen"
                                     Game.keyboard_bg_colors[value] = "lightgreen"
                                 else:
+                                    """Letter is present in the word, but not at the chosen spot"""
                                     Game.box_colors[key] = "orange"
                                     Game.keyboard_bg_colors[value] = "orange"
                                     Game.win = 0
                             else:
+                                """Letter is not present in the word"""
                                 Game.box_colors[key] = "#C0C0C0"
                                 Game.keyboard_bg_colors[value] = "#C0C0C0"
                                 Game.win = 0

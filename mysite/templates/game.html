@@ -4,9 +4,8 @@
 
 {% block content %}
 
-
 <div class="rows-container">
-    <form method="POST">
+    <form method="POST" name="game-form">
         {% csrf_token %}
         <button class="btn btn-secondary btn-lg" type="submit" hidden>save</button>
             
@@ -62,7 +61,7 @@
                                 {% for k, v in box_colors.items %}
                                     {% if k == input_name %}
                                         <input class="input-field" name="{{ input_name }}" value="{{ value.upper }}"
-                                        data-row="1" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                        data-row="1" data-col="{{index}}" style="color: white; background-color: {{v}}" disabled />
                                     {% endif %}
                                 {% endfor %}
                             {% endif %}
@@ -113,7 +112,7 @@
                                 {% for k, v in box_colors.items %}
                                     {% if k == input_name %}
                                         <input class="input-field" name="{{ input_name }}" value="{{ value.upper }}"
-                                        data-row="1" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                        data-row="1" data-col="{{index}}" style="color: white; background-color: {{v}}" disabled />
                                     {% endif %}
                                 {% endfor %}
                             {% endif %}
@@ -130,7 +129,7 @@
                                 {% for k, v in box_colors.items %}
                                     {% if k == input_name %}
                                         <input class="input-field" name="{{ input_name }}" value="{{ value.upper }}"
-                                        data-row="2" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                        data-row="2" data-col="{{index}}" style="color: white; background-color: {{v}}" disabled />
                                     {% endif %}
                                 {% endfor %}
                             {% endif %}
@@ -175,7 +174,7 @@
                                 {% for k, v in box_colors.items %}
                                     {% if k == input_name %}
                                         <input class="input-field" name="{{ input_name }}" value="{{ value.upper }}"
-                                        data-row="1" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                        data-row="1" data-col="{{index}}" style="color: white; background-color: {{v}}" disabled />
                                     {% endif %}
                                 {% endfor %}
                             {% endif %}
@@ -192,7 +191,7 @@
                                 {% for k, v in box_colors.items %}
                                     {% if k == input_name %}
                                         <input class="input-field" name="{{ input_name }}" value="{{ value.upper }}"
-                                        data-row="2" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                        data-row="2" data-col="{{index}}" style="color: white; background-color: {{v}}" disabled />
                                     {% endif %}
                                 {% endfor %}
                             {% endif %}
@@ -209,7 +208,7 @@
                                 {% for k, v in box_colors.items %}
                                     {% if k == input_name %}
                                         <input class="input-field" name="{{ input_name }}" value="{{ value.upper }}"
-                                        data-row="3" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                        data-row="3" data-col="{{index}}" style="color: white; background-color: {{v}}" disabled />
                                     {% endif %}
                                 {% endfor %}
                             {% endif %}
@@ -248,7 +247,7 @@
                                 {% for k, v in box_colors.items %}
                                     {% if k == input_name %}
                                         <input class="input-field" name="{{ input_name }}" value="{{ value.upper }}"
-                                        data-row="1" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                        data-row="1" data-col="{{index}}" style="color: white; background-color: {{v}}" disabled />
                                     {% endif %}
                                 {% endfor %}
                             {% endif %}
@@ -265,7 +264,7 @@
                                 {% for k, v in box_colors.items %}
                                     {% if k == input_name %}
                                         <input class="input-field" name="{{ input_name }}" value="{{ value.upper }}"
-                                        data-row="2" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                        data-row="2" data-col="{{index}}" style="color: white; background-color: {{v}}" disabled />
                                     {% endif %}
                                 {% endfor %}
                             {% endif %}
@@ -282,7 +281,7 @@
                                 {% for k, v in box_colors.items %}
                                     {% if k == input_name %}
                                         <input class="input-field" name="{{ input_name }}" value="{{ value.upper }}"
-                                        data-row="3" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                        data-row="3" data-col="{{index}}" style="color: white; background-color: {{v}}" disabled />
                                     {% endif %}
                                 {% endfor %}
                             {% endif %}
@@ -299,7 +298,7 @@
                                 {% for k, v in box_colors.items %}
                                     {% if k == input_name %}
                                         <input class="input-field" name="{{ input_name }}" value="{{ value.upper }}"
-                                        data-row="4" data-col="{{index}}" style="background-color: {{v}}" disabled />
+                                        data-row="4" data-col="{{index}}" style="color: white; background-color: {{v}}" disabled />
                                     {% endif %}
                                 {% endfor %}
                             {% endif %}
@@ -453,6 +452,7 @@
         // Get the previous input
         return document.querySelector(`[data-row="${prevRow}"][data-col="${prevCol}"]`);
     }
+
 </script>
 
 {% endblock %}

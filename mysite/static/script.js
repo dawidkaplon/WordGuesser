@@ -33,18 +33,16 @@ const buttonMap = {
 
 // Function to simulate a button click
 function simulateButtonClick(button) {
-    const originalBackgroundColor = '';
-    const originalStyleColor = '';
-    button.style.backgroundColor = '#C0C0C0';
-    button.style.color = 'white';
+  const originalBackgroundColor = '';
+  const originalStyleColor = '';
+  button.style.backgroundColor = '#C0C0C0';
+  button.style.color = 'white';
 
-    setTimeout(() => {
-        button.style.backgroundColor = originalBackgroundColor;
-        button.style.color = originalStyleColor
-    }, 200);
+  setTimeout(() => {
+      button.style.backgroundColor = originalBackgroundColor;
+      button.style.color = originalStyleColor
+  }, 200);
 }
-
-
 
 document.addEventListener('keydown', function (event) {
   const key = event.key.toUpperCase();
@@ -61,28 +59,4 @@ document.addEventListener('keydown', function (event) {
 
       simulateButtonClick(button);
   }
-});
-
-document.querySelector(".digits").addEventListener("input", function(e){
-    e.target.value = e.data.replace(/[^0-9]/g,'');
-    if ( e.target.value !== "" && e.target.nextElementSibling && e.target.nextElementSibling.nodeName === "INPUT" ){
-      e.target.nextElementSibling.focus();
-    } 
-  });
-
-document.querySelector("input").focus();
-document.querySelector(".digits").addEventListener("input", function({ target, data }){
-
-  data && ( target.value = data.replace(/[^0-9]/g,'') );
-  
-  const hasValue = target.value !== "";
-  const hasSibling = target.nextElementSibling;
-  const hasSiblingInput = hasSibling && target.nextElementSibling.nodeName === "INPUT";
-
-  if ( hasValue && hasSiblingInput ){
-
-    target.nextElementSibling.focus();
-  
-  } 
-
 });
