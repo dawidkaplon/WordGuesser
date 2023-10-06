@@ -1,9 +1,11 @@
 from bs4 import BeautifulSoup
 from django.db import models
+from string import ascii_letters
 
 import logging
 import random
 import requests
+
 
 logging.basicConfig(
     level=logging.INFO,
@@ -66,9 +68,10 @@ class WebScraper:
                 logging.info("search for a matching word..")
 
                 if WebScraper.test_flag == False:
-                    if self.word.isalpha() and len(self.word) == length:
-                        logging.info(f"word '{self.word}' has been found")
-                        break
+                    if len(self.word) == length:
+                        if all([letter in ascii_letters for letter in self.word]):
+                            logging.info(f"word '{self.word}' has been found")
+                            break
                     else:
                         continue  # Start the word search again if the previous word did not meet the criteria
 

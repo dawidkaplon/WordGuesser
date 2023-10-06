@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 
 from string import ascii_letters
-import enchant
 
 # Create your views here.
 
@@ -32,8 +31,6 @@ class Game:
     def gameplay(request):
         global letters
 
-        # gb_dict = enchant.Dict("en_GB")
-
         try:
             word = request.session["word"]
             word_length = [str(num + 1) for num in range(len(word["word"]))]
@@ -59,10 +56,6 @@ class Game:
 
                 elif any(list(value not in ascii_letters for value in list(request.POST.values())[1:])):
                     messages.warning(request, 'Given value is not a letter!')
-                    
-                # elif not gb_dict.check(''.join(list(request.POST.values())[1:])):
-                # # Check if inputted-word is present in english dictionary.
-                #     messages.warning(request, 'Not an english word!')
                 
                 else:
                     for key, value in request.POST.items():
@@ -82,7 +75,10 @@ class Game:
                                 else:
                                     """Letter is present in the word, but not at the chosen spot"""
                                     Game.box_colors[key] = "orange"
-                                    Game.keyboard_bg_colors[value] = "orange"
+                                    if Game.keyboard_bg_colors.get(value) == 'lightgreen':
+                                        pass
+                                    else:
+                                        Game.keyboard_bg_colors[value] = "orange"
                                     Game.win = 0
                             else:
                                 """Letter is not present in the word"""
