@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.utils.translation import gettext as _
+from django.utils.translation import get_language, activate
 
 from string import ascii_letters
 
@@ -13,6 +15,14 @@ def index(request):
             return redirect(f"words/get/length:{length}")
     
     return render(request, "index.html")
+
+def translate(language):
+    current_language = get_language()
+    try:
+        activate(language)
+    finally:
+        activate(current_language)
+
 
 
 class Game:

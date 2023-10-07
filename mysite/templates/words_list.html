@@ -1,10 +1,9 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
-<h1>Words</h1>
-<ul>
+<h1>Words</h1><br><br>
     {% for word in words %}
-    <li>Word: {{word.word}}<br>Definition: {{word.definition}}<br><br></li>
+    <strong>Word:</strong> {{word.word}}<br><strong>Definition:</strong> {{word.definition}}<br><br><br><br>
     {% endfor %}
-</ul>
 {% endblock %}

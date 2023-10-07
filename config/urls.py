@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.i18n import i18n_patterns
 from register import views as v
 
 urlpatterns = [
@@ -25,3 +26,10 @@ urlpatterns = [
     path('', include('mysite.urls')),
     path('', include('api.urls')),
 ]
+
+urlpatterns += i18n_patterns (
+    path('register/', v.register, name='register'),
+    path('', include(('django.contrib.auth.urls', 'auth'), namespace='auth')),
+    path('', include(('mysite.urls', 'mysite'), namespace='mysite')),
+    path('', include(('api.urls', 'api'), namespace='api')),
+)
