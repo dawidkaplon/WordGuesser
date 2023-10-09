@@ -1,7 +1,7 @@
 {% load i18n %}
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -303,18 +303,17 @@
           <span class="nav_logo-name">WordGuesser</span>
         </a>
         <div class="nav_list">
-          {% if user.is_authenticated %}
           <a href="#" class="nav_link active">
             <i class="bx bx-stop nav_icon"></i>
-            <span class="nav_name">option1</span>
+            <span class="nav_name">{% translate "option" %}1</span>
           </a>
           <a href="#" class="nav_link">
             <i class="bx bx-stop nav_icon"></i>
-            <span class="nav_name">option2</span>
+            <span class="nav_name">{% translate "option" %}2</span>
           </a>
           <a href="#" class="nav_link">
             <i class="bx bx-stop nav_icon"></i>
-            <span class="nav_name">option3</span>
+            <span class="nav_name">{% translate "option" %}3</span>
           </a>
           <a href="/{{LANGUAGE_CODE}}/login" class="nav_link">
             <i class="bx bx-stop nav_icon"></i>
@@ -322,23 +321,22 @@
           </a>
           <a href="/{{LANGUAGE_CODE}}/register" class="nav_link">
             <i class="bx bx-stop nav_icon"></i>
-            <span class="nav_name">register</span>
+            <span class="nav_name">{% translate "register" %}</span>
           </a>
           <a href="/words/get/length:6" class="nav_link">
             <i class="bx bx-stop nav_icon"></i>
-            <span class="nav_name">word_new</span>
+            <span class="nav_name">{% translate "new word" %}</span>
           </a>
-          {% endif %}
         </div>
       </div>
       {% if user.is_authenticated %}
       <a href="/logout" class="nav_link">
         <i class="bx bx-log-out nav_icon"></i>
-        <span class="nav_name">Log Out</span>
+        <span class="nav_name">{% translate "Log Out" %}</span>
         {% else %}
         <a href="/login" class="nav_link">
           <i class="bx bx-log-in nav_icon"></i>
-          <span class="nav_name">Log In</span>
+          <span class="nav_name">{% translate "Log In" %}</span>
           {% endif %}
         </a>
     </nav>

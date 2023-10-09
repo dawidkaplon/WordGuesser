@@ -62,10 +62,10 @@ class Game:
                 Game.win = 1
 
                 if '' in list(request.POST.values()):
-                    messages.warning(request, 'Given word is not long enough!')
+                    messages.warning(request, _('Given word is not long enough!'))
 
                 elif any(list(value not in ascii_letters for value in list(request.POST.values())[1:])):
-                    messages.warning(request, 'Given value is not a letter!')
+                    messages.warning(request, _('Given value is not a letter!'))
                 
                 else:
                     for key, value in request.POST.items():

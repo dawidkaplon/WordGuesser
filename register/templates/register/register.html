@@ -1,21 +1,25 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
-{% block title %} Create an Account {% endblock %}
+{% block title %} {% translate "Create an account" %} {% endblock %}
 
 {% load crispy_forms_tags %}
 
 
 {% block content %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_language_info_list for LANGUAGES as langs %}
 
 <div class="auth-form">
     <form method="POST" class="form-group">
         {{ form|crispy }}
         {% csrf_token %}
-        <div style="font-size: small;">
-            Already have an account? <a href="/login">Login here</a>
+        <div style="font-size: small; margin-top: 0.3rem;">
+            {% translate "Already have an account?" %} <a href="/{{LANGUAGE_CODE}}/login">{% translate "Login here" %}</a>
         </div>
-        <br><button type="submit" class="btn btn-secondary">Register</button>
+        <br><button type="submit" class="btn btn-secondary">{% translate "Register" %}</button>
     </form>
 </div>
-    
+
 {% endblock %}

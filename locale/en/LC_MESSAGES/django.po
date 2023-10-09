@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-07 22:59+0200\n"
+"POT-Creation-Date: 2023-10-09 23:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,12 +26,108 @@ msgstr ""
 msgid "Polish"
 msgstr ""
 
-#: .\mysite\views.py:23
-msgid "hello"
+#: .\mysite\templates\base.html:308 .\mysite\templates\base.html:312
+#: .\mysite\templates\base.html:316
+msgid "option"
 msgstr ""
 
-#: .\mysite\views.py:24
+#: .\mysite\templates\base.html:324
+msgid "register"
+msgstr ""
+
+#: .\mysite\templates\base.html:328 .\mysite\templates\error404.html:7
+#: .\mysite\templates\loss_page.html:11 .\mysite\templates\win_page.html:11
+msgid "new word"
+msgstr ""
+
+#: .\mysite\templates\base.html:335
+msgid "Log Out"
+msgstr ""
+
+#: .\mysite\templates\base.html:339
+msgid "Log In"
+msgstr ""
+
+#: .\mysite\templates\error404.html:6
+msgid "Oops, nothing in there!"
+msgstr ""
+
+#: .\mysite\templates\index.html:8
 msgid "Play"
+msgstr ""
+
+#: .\mysite\templates\index.html:11
+msgid "5 letters"
+msgstr ""
+
+#: .\mysite\templates\index.html:12
+msgid "6 letters"
+msgstr ""
+
+#: .\mysite\templates\index.html:13
+msgid "7 letters"
+msgstr ""
+
+#: .\mysite\templates\index.html:14
+msgid "8 letters"
+msgstr ""
+
+#: .\mysite\templates\loss_page.html:8
+msgid "You Lost!"
+msgstr ""
+
+#: .\mysite\templates\loss_page.html:9 .\mysite\templates\win_page.html:9
+msgid "Your word was:"
+msgstr ""
+
+#: .\mysite\templates\loss_page.html:10 .\mysite\templates\win_page.html:10
+#: .\mysite\templates\words_list.html:7
+msgid "Definition:"
+msgstr ""
+
+#: .\mysite\templates\win_page.html:8
+msgid "You Won!"
+msgstr ""
+
+#: .\mysite\templates\words_list.html:5
+msgid "Words"
+msgstr ""
+
+#: .\mysite\templates\words_list.html:7
+msgid "Word:"
+msgstr ""
+
+#: .\mysite\views.py:65
+msgid "Given word is not long enough!"
+msgstr ""
+
+#: .\mysite\views.py:68
+msgid "Given value is not a letter!"
+msgstr ""
+
+#: .\register\templates\register\register.html:4
+msgid "Create an account"
+msgstr ""
+
+#: .\register\templates\register\register.html:19
+msgid "Already have an account?"
+msgstr ""
+
+#: .\register\templates\register\register.html:19
+msgid "Login here"
+msgstr ""
+
+#: .\register\templates\register\register.html:21
+#: .\register\templates\registration\login.html:19
+msgid "Register"
+msgstr ""
+
+#: .\register\templates\registration\login.html:18
+msgid "Don't have an account?"
+msgstr ""
+
+#: .\register\templates\registration\login.html:20
+msgid "Login"
 msgstr ""
 
 #: .\venv\Lib\site-packages\bootstrap5\components.py:17
