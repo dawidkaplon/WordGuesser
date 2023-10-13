@@ -7,12 +7,12 @@ from string import ascii_letters
 
 # Create your views here.
 
-
 def index(request):
+    current_language = get_language()
     if request.method == "POST":
         length = request.POST.get("word_length")
         if length not in (None, "Word's length"):
-            return redirect(f"words/get/length:{length}")
+            return redirect(f"/{current_language}/words/get/length:{length}")
     
     return render(request, "index.html")
 
@@ -22,8 +22,6 @@ def translate(language):
         activate(language)
     finally:
         activate(current_language)
-
-
 
 class Game:
     reset_flag = True

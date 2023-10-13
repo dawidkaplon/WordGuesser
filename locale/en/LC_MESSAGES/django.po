@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-09 23:03+0200\n"
+"POT-Creation-Date: 2023-10-13 21:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,25 +26,25 @@ msgstr ""
 msgid "Polish"
 msgstr ""
 
-#: .\mysite\templates\base.html:308 .\mysite\templates\base.html:312
-#: .\mysite\templates\base.html:316
+#: .\mysite\templates\base.html:304 .\mysite\templates\base.html:308
+#: .\mysite\templates\base.html:312
 msgid "option"
 msgstr ""
 
-#: .\mysite\templates\base.html:324
+#: .\mysite\templates\base.html:320
 msgid "register"
 msgstr ""
 
-#: .\mysite\templates\base.html:328 .\mysite\templates\error404.html:7
-#: .\mysite\templates\loss_page.html:11 .\mysite\templates\win_page.html:11
+#: .\mysite\templates\base.html:324 .\mysite\templates\error404.html:7
+#: .\mysite\templates\loss_page.html:11 .\mysite\templates\win_page.html:12
 msgid "new word"
 msgstr ""
 
-#: .\mysite\templates\base.html:335
+#: .\mysite\templates\base.html:331
 msgid "Log Out"
 msgstr ""
 
-#: .\mysite\templates\base.html:339
+#: .\mysite\templates\base.html:335
 msgid "Log In"
 msgstr ""
 
@@ -81,27 +81,30 @@ msgid "Your word was:"
 msgstr ""
 
 #: .\mysite\templates\loss_page.html:10 .\mysite\templates\win_page.html:10
-#: .\mysite\templates\words_list.html:7
-msgid "Definition:"
+msgid "Definition"
 msgstr ""
 
 #: .\mysite\templates\win_page.html:8
 msgid "You Won!"
 msgstr ""
 
-#: .\mysite\templates\words_list.html:5
+#: .\mysite\templates\words_list.html:6
 msgid "Words"
 msgstr ""
 
-#: .\mysite\templates\words_list.html:7
+#: .\mysite\templates\words_list.html:9
 msgid "Word:"
 msgstr ""
 
-#: .\mysite\views.py:65
+#: .\mysite\templates\words_list.html:9
+msgid "Definition:"
+msgstr ""
+
+#: .\mysite\views.py:63
 msgid "Given word is not long enough!"
 msgstr ""
 
-#: .\mysite\views.py:68
+#: .\mysite\views.py:66
 msgid "Given value is not a letter!"
 msgstr ""
 

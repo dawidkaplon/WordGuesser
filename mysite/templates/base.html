@@ -282,23 +282,19 @@
       <i class="bx bx-menu" id="header-toggle"></i>
     </div>
 
-    <div class="header_flags" style="margin-left: auto;">
-      {% for lang in langs %}
-        {% if lang.code == 'pl' %}
-          <!-- Polish flag (top right corner) -->
-          <a href="/{{lang.code}}"><span class="flag-emoji pl" id="flag"></span></a>
+    <div class="header_flags" style="margin-left: auto;">  
+        {% if LANGUAGE_CODE == 'pl' %}
+          <a href="/en"><span class="flag-emoji uk" id="flag"></span></a>
         {% else %}
-          <!-- UK flag -->
-          <a href="/{{lang.code}}"><span class="flag-emoji uk" id="flag"></span></a>
+          <a href="/pl"><span class="flag-emoji pl" id="flag"></span></a>
         {% endif %}
-      {% endfor %}
     </div>
 
   </header>
   <div class="l-navbar" id="nav-bar">
     <nav class="nav">
       <div>
-        <a href="/" class="nav_logo">
+        <a href="/{{LANGUAGE_CODE}}" class="nav_logo">
           <i class="bx bx-meteor nav_logo-icon"></i>
           <span class="nav_logo-name">WordGuesser</span>
         </a>
@@ -323,7 +319,7 @@
             <i class="bx bx-stop nav_icon"></i>
             <span class="nav_name">{% translate "register" %}</span>
           </a>
-          <a href="/words/get/length:6" class="nav_link">
+          <a href="/{{LANGUAGE_CODE}}/words/get/length:6" class="nav_link">
             <i class="bx bx-stop nav_icon"></i>
             <span class="nav_name">{% translate "new word" %}</span>
           </a>

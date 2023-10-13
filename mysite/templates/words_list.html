@@ -2,8 +2,12 @@
 {% load i18n %}
 
 {% block content %}
+
 <h1>{% translate "Words" %}</h1><br><br>
-    {% for word in words %}
-        <strong>{% translate "Word:" %}</strong> {{word.word}}<br><strong>{% translate "Definition:" %}</strong> {{word.definition}}<br><br><br><br>
-    {% endfor %}
+
+{% for word in words %}
+    <strong>{% translate "Word:" %}</strong> {{word.word}}<br><strong>{% translate "Definition:" %}</strong>
+    {{word.definition}}<br><br><br><br>
+{% endfor %}
+
 {% endblock %}

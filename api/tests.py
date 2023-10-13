@@ -15,7 +15,7 @@ class WordTest(TestCase):
     random_id = random.randint(1, 5)
 
     webscraper = Word()
-    webscraper.fetch_data(6)
+    webscraper.fetch_data(6, 'en')
 
     def setUp(self):
         for w in range(1, 6):
@@ -106,7 +106,7 @@ class URLTest(TestCase):
     client = APIClient()
 
     def test_fetch_word(self):
-        response = client.get("/words/get/length:6", format="json")
+        response = client.get("/en/words/get/length:6", format="json")
         self.assertEqual(response.status_code, 201)
 
     def test_get_words_list(self):

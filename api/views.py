@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.http import JsonResponse
 from rest_framework.response import Response
 from rest_framework import renderers, views, status
+from django.utils.translation import get_language
 
 from .serializers import WordSerializer
 from .models import Word
@@ -9,13 +10,13 @@ from mysite.views import Game
 
 # Create your views here.
 
-
 class GetWord(views.APIView):
     renderer_classes = [renderers.JSONRenderer, renderers.TemplateHTMLRenderer]
 
-    def get(self, request, length):
+    def get(self, request, length, language):
+        current_language = get_language()
         webscraper = Word()
-        webscraper.fetch_data(length)
+        webscraper.fetch_data(length, language)
 
         if webscraper.word is not None:
             if request.accepted_renderer.format == "json":
@@ -30,7 +31,7 @@ class GetWord(views.APIView):
                 
                 request.session['word'] = {'word': word.word, 'definition': word.definition}
                 Game.reset_flag = True
-                return redirect('/game/')
+                return redirect(f'/{current_language}/game/')
 
         else:
             return JsonResponse(

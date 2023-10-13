@@ -7,8 +7,10 @@
 <div class="content">
     <h1>{% translate "You Lost!" %}</h1>
     <h3>{% translate "Your word was:" %}<strong> {{word.word}}</strong></h3>
-    <h4>{% translate "Definition:" %} {{word.definition}}</h4>
-    <h5><a href="/words/get/length:6">{% translate "new word" %}</a></h5>
+    <a href="{{word.definition}}" target="_blank"_>{% translate "Definition" %}</a>
+    <div>
+        <a class="btn btn-primary" href="/{{LANGUAGE_CODE}}" style="width: 18rem;">{% translate "new word" %}</a>
+    </div>
 </div>
 
 {% endblock %}
