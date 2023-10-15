@@ -90,8 +90,8 @@ class Game:
                                     Game.win = 0
                             else:
                                 """Letter is not present in the word"""
-                                Game.box_colors[key] = "#C0C0C0"
-                                Game.keyboard_bg_colors[value] = "#C0C0C0"
+                                Game.box_colors[key] = "silver"
+                                Game.keyboard_bg_colors[value] = "silver"
                                 Game.win = 0
                     
                     Game.active_rows += 1
