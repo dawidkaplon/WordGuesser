@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% load static %}
 
 {% block content %}
 
+<audio controls autoplay hidden>
+    <source src="{% static 'endgame-sound.mp3' %}">
+</audio>
 
 <div class="content">
     <h1>{% translate "You Won!" %}</h1>

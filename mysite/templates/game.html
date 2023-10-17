@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% load static %}
 
 {% load custom_filters %}
 
@@ -10,8 +11,11 @@
         {% csrf_token %}
         <button class="btn btn-dark btn-lg" type="submit" hidden>save</button>
             
-
             {% if active_rows == 1 %}
+
+            <div class="centered-message" id="centered-message">
+                {% translate "Try to guess the word!" %}
+            </div>
             
             <div class="d-flex justify-content-center align-items-center">
                 <!-- Get row and column numbers with actual corresponding values from letters dict -->
@@ -53,6 +57,10 @@
 
 
             {% elif active_rows == 2 %}
+            
+            <audio controls autoplay hidden>
+                <source src="{% static 'next-level-sound.mp3' %}">
+            </audio>
             
             <div class="d-flex justify-content-center align-items-center">
                 {% for index in word_length %}
@@ -104,6 +112,10 @@
             
 
             {% elif active_rows == 3 %}
+
+            <audio controls autoplay hidden>
+                <source src="{% static 'next-level-sound.mp3' %}">
+            </audio>
             
             <div class="d-flex justify-content-center align-items-center">
                 {% for index in word_length %}
@@ -166,6 +178,10 @@
             
 
             {% elif active_rows == 4 %}
+            
+            <audio controls autoplay hidden>
+                <source src="{% static 'next-level-sound.mp3' %}">
+            </audio>
             
             <div class="d-flex justify-content-center align-items-center">
                 {% for index in word_length %}
@@ -239,6 +255,10 @@
 
             
             {% elif active_rows == 5 %}
+            
+            <audio controls autoplay hidden>
+                <source src="{% static 'next-level-sound.mp3' %}">
+            </audio>
             
             <div class="d-flex justify-content-center align-items-center">
                 {% for index in word_length %}
@@ -453,6 +473,17 @@
         // Get the previous input
         return document.querySelector(`[data-row="${prevRow}"][data-col="${prevCol}"]`);
     }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const centeredMessage = document.getElementById("centered-message");
+
+        centeredMessage.style.display = "block";
+        
+        // Hide the centered message after 1.5 seconds
+        setTimeout(function() {
+            centeredMessage.style.display = "none";
+        }, 1500);
+    });
 
 </script>
 

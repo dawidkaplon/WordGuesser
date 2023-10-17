@@ -4,11 +4,13 @@
 
 .content-container {
   background-color: rgb(245, 222, 179, 0.5);
-  border-radius: 15px;
-  max-width: 100%;
+  border-radius: 55px;
+  max-width: calc(100% - 1rem);
+  width: 100%;
   padding-top: 0.2rem;
   padding-bottom: 1.5rem;
-  box-shadow: grey 1px 0 10px;
+  box-shadow: grey 1px 0 15px;
+  margin: 0 auto;
 }
 
 
@@ -16,7 +18,7 @@
   width: 30rem;
   margin-left: auto;
   margin-right: auto;
-  
+
 }
 
 .messages {
@@ -26,6 +28,18 @@
 }
 
 /* Game template */
+.centered-message {
+  position: fixed;
+  top: 33.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: none;
+}
+
 .rows-container {
   margin-bottom: 2.5rem;
 }
@@ -40,7 +54,7 @@
   margin-left: 5px;
   border-radius: 5px;
   text-align: center;
-  font-size: 3rem;
+  font-size: 2.8rem;
   text-transform: uppercase;
   caret-color: transparent;
 }
@@ -58,7 +72,7 @@ input:focus {
 
 @keyframes zoom {
   from {}
-  
+
   to {
     transform: scale(1.3);
   }
@@ -67,7 +81,6 @@ input:focus {
 /* Index template */
 .index-header {
   font-size: 4rem;
-  text-shadow: 5px 5px 5px white;
 }
 
 .index-description {
@@ -75,15 +88,26 @@ input:focus {
   font-size: large;
 }
 
-.input-group {
+.length-choice {
   margin-top: 4rem;
   margin-left: auto;
   margin-right: auto;
   max-width: 25rem;
 }
 
-.about-us-button {
-  margin-top: 2rem;
+.links-choice {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 25rem;
+}
+
+.menu-button {
+  width: 400px;
+  margin-top: .5rem;
+}
+
+.about-game-button {
+  margin-top: 1rem;
 }
 
 .menu button {
@@ -111,10 +135,12 @@ input:focus {
   height: 47px;
 }
 
-#buttonW, #buttonO {
+#buttonW,
+#buttonO {
   width: 59px;
 }
 
-#buttonEnter, #buttonBackspace {
+#buttonEnter,
+#buttonBackspace {
   width: 76px;
 }
