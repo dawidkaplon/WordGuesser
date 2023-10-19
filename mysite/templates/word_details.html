@@ -1,8 +1,22 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
-<div style="text-align: center; text-shadow: 3px 3px lightgreen; text-decoration: underline;">
+
+<style>
+    a {
+        color: black;
+    }
+</style>
+
 <h1>{{word.word}}</h1>
-<h5>{{word.definition}}</h5>
+
+<div class="word-container" style="margin-top: .7rem;">
+    <div class="word" style="font-size: larger;">
+        Word: <a href="{{ word.definition }}" target="_blank"><strong>{{word.word}}</strong></a>
+    </div>
+    <div class="word-user">
+        {% translate "User" %}: {{word.user}}
+    </div>
 </div>
 {% endblock %}

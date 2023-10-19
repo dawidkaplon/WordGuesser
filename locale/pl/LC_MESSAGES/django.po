@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-18 01:25+0200\n"
+"POT-Creation-Date: 2023-10-20 00:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,7 +37,7 @@ msgstr "opcja"
 msgid "register"
 msgstr "rejestracja"
 
-#: .\mysite\templates\base.html:373 .\mysite\templates\error404.html:7
+#: .\mysite\templates\base.html:373
 msgid "new word"
 msgstr "nowe słowo"
 
@@ -48,10 +48,6 @@ msgstr "Wyloguj"
 #: .\mysite\templates\base.html:385
 msgid "Login/Register"
 msgstr "Zaloguj/Zarejestruj"
-
-#: .\mysite\templates\error404.html:6
-msgid "Oops, nothing in there!"
-msgstr "Ups, nic tu nie ma!"
 
 #: .\mysite\templates\game.html:17
 msgid "Try to guess the word!"
@@ -97,33 +93,34 @@ msgstr "Informacje o grze"
 msgid "Rules"
 msgstr "Zasady"
 
-#: .\mysite\templates\loss_page.html:12
+#: .\mysite\templates\loss_page.html:18
 msgid "You Lost!"
 msgstr "Przegrałeś!"
 
-#: .\mysite\templates\loss_page.html:13 .\mysite\templates\win_page.html:13
+#: .\mysite\templates\loss_page.html:19 .\mysite\templates\win_page.html:19
 msgid "Your word was: "
 msgstr "Twoje słowo to: "
 
-#: .\mysite\templates\loss_page.html:15 .\mysite\templates\win_page.html:15
+#: .\mysite\templates\loss_page.html:21 .\mysite\templates\win_page.html:21
 msgid "Go to Homepage"
 msgstr "Wróć do strony głównej"
 
-#: .\mysite\templates\win_page.html:12
+#: .\mysite\templates\win_page.html:18
 msgid "You Won!"
 msgstr "Wygrałeś!"
 
-#: .\mysite\templates\words_list.html:6
+#: .\mysite\templates\word_details.html:19
+#: .\mysite\templates\words_list.html:20
+msgid "User"
+msgstr "Użytkownik"
+
+#: .\mysite\templates\words_list.html:12
 msgid "Words"
 msgstr "Słowa"
 
-#: .\mysite\templates\words_list.html:9
-msgid "Word:"
-msgstr "Słowo:"
-
-#: .\mysite\templates\words_list.html:9
-msgid "Definition:"
-msgstr "Definicja:"
+#: .\mysite\templates\words_list.html:17
+msgid "Word"
+msgstr "Słowo"
 
 #: .\mysite\views.py:63
 msgid "Given word is not long enough!"
@@ -1371,6 +1368,18 @@ msgstr ""
 msgid "Connect, get help, or contribute"
 msgstr ""
 
+#~ msgid "Word:"
+#~ msgstr "Słowo:"
+
+#~ msgid "Definition"
+#~ msgstr "Definicja"
+
+#~ msgid "Oops, nothing in there!"
+#~ msgstr "Ups, nic tu nie ma!"
+
+#~ msgid "Definition:"
+#~ msgstr "Definicja:"
+
 #~ msgid "Log In"
 #~ msgstr "Zaloguj"
 
@@ -1379,9 +1388,6 @@ msgstr ""
 
 #~ msgid "Your word was:"
 #~ msgstr "Twoje słowo to:"
-
-#~ msgid "Definition"
-#~ msgstr "Definicja"
 
 #~ msgid "Register here"
 #~ msgstr "Zarejestruj się tutaj"

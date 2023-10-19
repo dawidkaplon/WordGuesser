@@ -1,14 +1,15 @@
 from django.shortcuts import redirect
 from django.http import JsonResponse
+from django.utils.translation import get_language
 from rest_framework.response import Response
 from rest_framework import renderers, views, status
-from django.utils.translation import get_language
 
 from .serializers import WordSerializer
 from .models import Word
 from mysite.views import Game
 
 # Create your views here.
+
 
 class GetWord(views.APIView):
     renderer_classes = [renderers.JSONRenderer, renderers.TemplateHTMLRenderer]
@@ -26,12 +27,33 @@ class GetWord(views.APIView):
                 )
 
             if request.accepted_renderer.format == "html":
-                word = Word(word=webscraper.word, definition=webscraper.definition)
-                # word.save()  # Create a found word and save it in the database
-                
-                request.session['word'] = {'word': word.word, 'definition': word.definition}
+                if request.user.is_authenticated:
+                    word = Word(
+                        word=webscraper.word,
+                        definition=webscraper.definition,
+                        user=request.user,
+                    )
+                    request.session["word"] = {
+                        "word": word.word,
+                        "definition": word.definition,
+                        "user": word.user.username,
+                    }
+                else:
+                    word = Word(
+                        word=webscraper.word,
+                        definition=webscraper.definition,
+                        user=None,
+                    )
+                    request.session["word"] = {
+                        "word": word.word,
+                        "definition": word.definition,
+                        "user": word.user,
+                    }
+
+                word.save()  # Create a found word and save it in the database
+
                 Game.reset_flag = True
-                return redirect(f'/{current_language}/game/')
+                return redirect(f"/{current_language}/game/")
 
         else:
             return JsonResponse(

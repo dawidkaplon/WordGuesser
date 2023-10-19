@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-18 01:25+0200\n"
+"POT-Creation-Date: 2023-10-20 00:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,7 +35,7 @@ msgstr ""
 msgid "register"
 msgstr ""
 
-#: .\mysite\templates\base.html:373 .\mysite\templates\error404.html:7
+#: .\mysite\templates\base.html:373
 msgid "new word"
 msgstr ""
 
@@ -45,10 +45,6 @@ msgstr ""
 
 #: .\mysite\templates\base.html:385
 msgid "Login/Register"
-msgstr ""
-
-#: .\mysite\templates\error404.html:6
-msgid "Oops, nothing in there!"
 msgstr ""
 
 #: .\mysite\templates\game.html:17
@@ -95,32 +91,33 @@ msgstr ""
 msgid "Rules"
 msgstr ""
 
-#: .\mysite\templates\loss_page.html:12
+#: .\mysite\templates\loss_page.html:18
 msgid "You Lost!"
 msgstr ""
 
-#: .\mysite\templates\loss_page.html:13 .\mysite\templates\win_page.html:13
+#: .\mysite\templates\loss_page.html:19 .\mysite\templates\win_page.html:19
 msgid "Your word was: "
 msgstr ""
 
-#: .\mysite\templates\loss_page.html:15 .\mysite\templates\win_page.html:15
+#: .\mysite\templates\loss_page.html:21 .\mysite\templates\win_page.html:21
 msgid "Go to Homepage"
 msgstr ""
 
-#: .\mysite\templates\win_page.html:12
+#: .\mysite\templates\win_page.html:18
 msgid "You Won!"
 msgstr ""
 
-#: .\mysite\templates\words_list.html:6
+#: .\mysite\templates\word_details.html:19
+#: .\mysite\templates\words_list.html:20
+msgid "User"
+msgstr ""
+
+#: .\mysite\templates\words_list.html:12
 msgid "Words"
 msgstr ""
 
-#: .\mysite\templates\words_list.html:9
-msgid "Word:"
-msgstr ""
-
-#: .\mysite\templates\words_list.html:9
-msgid "Definition:"
+#: .\mysite\templates\words_list.html:17
+msgid "Word"
 msgstr ""
 
 #: .\mysite\views.py:63

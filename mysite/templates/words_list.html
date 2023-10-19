@@ -3,11 +3,23 @@
 
 {% block content %}
 
-<h1>{% translate "Words" %}</h1><br><br>
+<style>
+    a {
+        color: black;
+    }
+</style>
+
+<h1>{% translate "Words" %}</h1>
 
 {% for word in words %}
-    <strong>{% translate "Word:" %}</strong> {{word.word}}<br><strong>{% translate "Definition:" %}</strong>
-    {{word.definition}}<br><br><br><br>
+<div class="word-container" style="margin-top: 1.4rem;">
+    <div class="word" style="font-size: larger;">
+        {% translate "Word" %}: <a href="{{ word.definition }}" target="_blank"><strong>{{word.word}}</strong></a>
+    </div>
+    <div class="word-user">
+        {% translate "User" %}: {{word.user}}
+    </div>
+</div>
 {% endfor %}
 
 {% endblock %}
