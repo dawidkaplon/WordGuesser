@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-20 00:05+0200\n"
+"POT-Creation-Date: 2023-10-20 22:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,7 +28,14 @@ msgstr ""
 msgid "Polish"
 msgstr ""
 
-#: .\mysite\templates\base.html:353 .\mysite\templates\base.html:357
+#: .\mysite\templates\base.html:353
+msgid "Previous words"
+msgstr "Poprzednie słowa"
+
+#: .\mysite\templates\base.html:357
+msgid "Statistics"
+msgstr "Statystyki"
+
 #: .\mysite\templates\base.html:361
 msgid "option"
 msgstr "opcja"
@@ -105,22 +112,28 @@ msgstr "Twoje słowo to: "
 msgid "Go to Homepage"
 msgstr "Wróć do strony głównej"
 
-#: .\mysite\templates\win_page.html:18
-msgid "You Won!"
-msgstr "Wygrałeś!"
+#: .\mysite\templates\user_words_list.html:12
+msgid "Your previous words"
+msgstr "Twoje poprzednie słowa"
 
+#: .\mysite\templates\user_words_list.html:17
+#: .\mysite\templates\words_list.html:17
+msgid "Word"
+msgstr "Słowo"
+
+#: .\mysite\templates\user_words_list.html:20
 #: .\mysite\templates\word_details.html:19
 #: .\mysite\templates\words_list.html:20
 msgid "User"
 msgstr "Użytkownik"
 
+#: .\mysite\templates\win_page.html:18
+msgid "You Won!"
+msgstr "Wygrałeś!"
+
 #: .\mysite\templates\words_list.html:12
 msgid "Words"
 msgstr "Słowa"
-
-#: .\mysite\templates\words_list.html:17
-msgid "Word"
-msgstr "Słowo"
 
 #: .\mysite\views.py:63
 msgid "Given word is not long enough!"
@@ -1368,6 +1381,12 @@ msgstr ""
 msgid "Connect, get help, or contribute"
 msgstr ""
 
+#~ msgid "My WORDS"
+#~ msgstr "Moje SŁOWA"
+
+#~ msgid "My STATISTICS"
+#~ msgstr "Moje STATYSTYKI"
+
 #~ msgid "Word:"
 #~ msgstr "Słowo:"
 
@@ -1385,9 +1404,6 @@ msgstr ""
 
 #~ msgid "About Us"
 #~ msgstr "O nas"
-
-#~ msgid "Your word was:"
-#~ msgstr "Twoje słowo to:"
 
 #~ msgid "Register here"
 #~ msgstr "Zarejestruj się tutaj"

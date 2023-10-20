@@ -1,6 +1,9 @@
 from django.shortcuts import redirect
-from django.http import JsonResponse
+from django.http import JsonResponse, Http404
 from django.utils.translation import get_language
+from django.shortcuts import get_object_or_404
+from django.contrib.auth.models import User
+
 from rest_framework.response import Response
 from rest_framework import renderers, views, status
 
@@ -128,3 +131,28 @@ class AddWord(views.APIView):
                 return JsonResponse(
                     {"word": serializer.data}, status=status.HTTP_201_CREATED
                 )
+        else:
+            raise Http404
+            
+
+class GetUserWords(views.APIView):
+    renderer_classes = [renderers.JSONRenderer, renderers.TemplateHTMLRenderer]
+    
+    def get(self, request, username):
+        user = get_object_or_404(User, username=username)
+
+        if request.user == user or request.user.is_superuser:
+            if request.accepted_renderer.format == "json":
+                all_words = Word.objects.filter(user=username)
+                serializer = WordSerializer(all_words, many=True)
+                return Response({"words": serializer.data}, status=status.HTTP_200_OK)
+
+            if request.accepted_renderer.format == "html":
+                all_words = Word.objects.filter(user=user)
+                return Response(
+                    {"words": all_words, "user": user},
+                    template_name="user_words_list.html",
+                    status=status.HTTP_200_OK,
+                )
+        else:
+            raise Http404
