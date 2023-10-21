@@ -1,6 +1,6 @@
 from django.db import models
 from .scraping.webscraper import WebScraper
-from django.contrib.auth.models import User
+from config.settings import AUTH_USER_MODEL
 
 # Create your models here.
 
@@ -15,7 +15,7 @@ class Word(models.Model, WebScraper):
 
     word = WebScraper.word
     definition = WebScraper.definition
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    user = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True)
 
     def __str__(self) -> str:
         return self.word

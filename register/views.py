@@ -12,7 +12,7 @@ def register(request):
         form = RegisterForm(request.POST)
         if form.is_valid():
             new_user = form.save()
-            new_user = authenticate(username=form.cleaned_data['username'],
+            new_user = authenticate(username=form.cleaned_data['email'],
                                     password=form.cleaned_data['password1'],
                                     )
             login(request, new_user)
@@ -25,7 +25,7 @@ def user_login(request):
         form = LoginForm(request.POST)
         if form.is_valid():
             user = authenticate(
-                username=form.cleaned_data['username'],
+                username=form.cleaned_data['email'],
                 password=form.cleaned_data['password'],
             )
             if user is not None:

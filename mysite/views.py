@@ -61,6 +61,7 @@ class Game:
 
                 if '' in list(request.POST.values()):
                     messages.warning(request, _('Given word is not long enough!'))
+                    print(word)
 
                 elif any(list(value not in ascii_letters for value in list(request.POST.values())[1:])):
                     messages.warning(request, _('Given value is not a letter!'))

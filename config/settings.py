@@ -15,6 +15,7 @@ from django.contrib.messages import constants as messages
 from django.utils.translation import gettext_lazy as _
 import os
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "---> YOUR GENERATED SECRET KEY HERE <---"
+SECRET_KEY = ""
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
     "mysite",
     "api",
     "register",
+    "users",
 ]
 
 MIDDLEWARE = [
@@ -108,6 +110,8 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+
+AUTH_USER_MODEL = "users.CustomUser"
 
 
 # Internationalization

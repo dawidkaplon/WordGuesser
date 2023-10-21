@@ -34,12 +34,12 @@ class GetWord(views.APIView):
                     word = Word(
                         word=webscraper.word,
                         definition=webscraper.definition,
-                        user=request.user,
+                        user=request.user
                     )
+                    print(word.user)
                     request.session["word"] = {
                         "word": word.word,
                         "definition": word.definition,
-                        "user": word.user.username,
                     }
                 else:
                     word = Word(
