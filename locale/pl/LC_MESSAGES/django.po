@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-20 22:14+0200\n"
+"POT-Creation-Date: 2023-10-22 23:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,39 +20,41 @@ msgstr ""
 "%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
 "%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-#: .\config\settings.py:161
+#: .\config\settings.py:164
 msgid "English"
 msgstr ""
 
-#: .\config\settings.py:162
+#: .\config\settings.py:165
 msgid "Polish"
 msgstr ""
 
-#: .\mysite\templates\base.html:353
+#: .\mysite\templates\base.html:363
+msgid "Homepage"
+msgstr "Strona główna"
+
+#: .\mysite\templates\base.html:368
 msgid "Previous words"
 msgstr "Poprzednie słowa"
 
-#: .\mysite\templates\base.html:357
+#: .\mysite\templates\base.html:372
 msgid "Statistics"
 msgstr "Statystyki"
 
-#: .\mysite\templates\base.html:361
-msgid "option"
-msgstr "opcja"
+#: .\mysite\templates\base.html:380 .\mysite\templates\base.html:389
+#: .\mysite\templates\index.html:34 .\mysite\templates\index.html:43
+msgid "About the game"
+msgstr "Informacje o grze"
 
-#: .\mysite\templates\base.html:369
-msgid "register"
-msgstr "rejestracja"
+#: .\mysite\templates\base.html:384 .\mysite\templates\base.html:393
+#: .\mysite\templates\index.html:38 .\mysite\templates\index.html:47
+msgid "Rules"
+msgstr "Zasady"
 
-#: .\mysite\templates\base.html:373
-msgid "new word"
-msgstr "nowe słowo"
-
-#: .\mysite\templates\base.html:380
+#: .\mysite\templates\base.html:402
 msgid "Log Out"
 msgstr "Wyloguj"
 
-#: .\mysite\templates\base.html:385
+#: .\mysite\templates\base.html:407
 msgid "Login/Register"
 msgstr "Zaloguj/Zarejestruj"
 
@@ -92,13 +94,14 @@ msgstr "7 liter"
 msgid "8 letters"
 msgstr "8 liter"
 
-#: .\mysite\templates\index.html:34 .\mysite\templates\index.html:43
-msgid "About the game"
-msgstr "Informacje o grze"
+#: .\mysite\templates\index.html:54
+#: .\register\templates\registration\login.html:20
+msgid "Login"
+msgstr "Zaloguj się"
 
-#: .\mysite\templates\index.html:38 .\mysite\templates\index.html:47
-msgid "Rules"
-msgstr "Zasady"
+#: .\mysite\templates\index.html:58
+msgid "Get started"
+msgstr "Rejestracja"
 
 #: .\mysite\templates\loss_page.html:18
 msgid "You Lost!"
@@ -108,7 +111,9 @@ msgstr "Przegrałeś!"
 msgid "Your word was: "
 msgstr "Twoje słowo to: "
 
-#: .\mysite\templates\loss_page.html:21 .\mysite\templates\win_page.html:21
+#: .\mysite\templates\loss_page.html:21
+#: .\mysite\templates\user_words_list.html:17
+#: .\mysite\templates\win_page.html:21
 msgid "Go to Homepage"
 msgstr "Wróć do strony głównej"
 
@@ -116,12 +121,16 @@ msgstr "Wróć do strony głównej"
 msgid "Your previous words"
 msgstr "Twoje poprzednie słowa"
 
-#: .\mysite\templates\user_words_list.html:17
+#: .\mysite\templates\user_words_list.html:15
+msgid "Your list is empty! Is it the right time to play some games?"
+msgstr "Twoja lista jest pusta! Czy to odpowiedni czas, by zagrać?"
+
+#: .\mysite\templates\user_words_list.html:24
 #: .\mysite\templates\words_list.html:17
 msgid "Word"
 msgstr "Słowo"
 
-#: .\mysite\templates\user_words_list.html:20
+#: .\mysite\templates\user_words_list.html:27
 #: .\mysite\templates\word_details.html:19
 #: .\mysite\templates\words_list.html:20
 msgid "User"
@@ -139,7 +148,7 @@ msgstr "Słowa"
 msgid "Given word is not long enough!"
 msgstr "Słowo nie jest wystarczająco długie!"
 
-#: .\mysite\views.py:66
+#: .\mysite\views.py:67
 msgid "Given value is not a letter!"
 msgstr "Podana wartość jest niewłaściwa!"
 
@@ -164,9 +173,21 @@ msgstr "Zarejestruj się"
 msgid "Don't have an account?"
 msgstr "Nie masz jeszcze konta?"
 
-#: .\register\templates\registration\login.html:20
-msgid "Login"
-msgstr "Zaloguj się"
+#: .\users\managers.py:15
+msgid "The Email must be set"
+msgstr ""
+
+#: .\users\managers.py:31
+msgid "Superuser must have is_staff=True."
+msgstr ""
+
+#: .\users\managers.py:33
+msgid "Superuser must have is_superuser=True."
+msgstr ""
+
+#: .\users\models.py:10
+msgid "email address"
+msgstr ""
 
 #: .\venv\Lib\site-packages\bootstrap5\components.py:17
 #: .\venv\Lib\site-packages\bootstrap5\templates\bootstrap5\form_errors.html:3
@@ -1380,6 +1401,15 @@ msgstr ""
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:248
 msgid "Connect, get help, or contribute"
 msgstr ""
+
+#~ msgid "option"
+#~ msgstr "opcja"
+
+#~ msgid "register"
+#~ msgstr "rejestracja"
+
+#~ msgid "new word"
+#~ msgstr "nowe słowo"
 
 #~ msgid "My WORDS"
 #~ msgstr "Moje SŁOWA"

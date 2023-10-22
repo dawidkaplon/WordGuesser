@@ -2,7 +2,7 @@ from django.shortcuts import redirect
 from django.http import JsonResponse, Http404
 from django.utils.translation import get_language
 from django.shortcuts import get_object_or_404
-from django.contrib.auth.models import User
+from django.contrib.auth.decorators import user_passes_test
 
 from rest_framework.response import Response
 from rest_framework import renderers, views, status
@@ -10,6 +10,7 @@ from rest_framework import renderers, views, status
 from .serializers import WordSerializer
 from .models import Word
 from mysite.views import Game
+from users.models import CustomUser
 
 # Create your views here.
 
@@ -36,7 +37,6 @@ class GetWord(views.APIView):
                         definition=webscraper.definition,
                         user=request.user
                     )
-                    print(word.user)
                     request.session["word"] = {
                         "word": word.word,
                         "definition": word.definition,
@@ -86,23 +86,23 @@ class GetWordDetails(views.APIView):
         if request.accepted_renderer.format == "json":
             return JsonResponse({"word": serializer.data}, status=status.HTTP_200_OK)
 
-
 class GetList(views.APIView):
     renderer_classes = [renderers.JSONRenderer, renderers.TemplateHTMLRenderer]
 
     def get(self, request):
-        if request.accepted_renderer.format == "json":
-            all_words = Word.objects.all()
-            serializer = WordSerializer(all_words, many=True)
-            return Response({"words": serializer.data}, status=status.HTTP_200_OK)
+        if request.user.is_superuser:
+            if request.accepted_renderer.format == "json":
+                all_words = Word.objects.all()
+                serializer = WordSerializer(all_words, many=True)
+                return Response({"words": serializer.data}, status=status.HTTP_200_OK)
 
-        if request.accepted_renderer.format == "html":
-            all_words = Word.objects.all()
-            return Response(
-                {"words": all_words},
-                template_name="words_list.html",
-                status=status.HTTP_200_OK,
-            )
+            if request.accepted_renderer.format == "html":
+                all_words = Word.objects.all()
+                return Response(
+                    {"words": all_words},
+                    template_name="words_list.html",
+                    status=status.HTTP_200_OK,
+                )
 
 
 class AddWord(views.APIView):
@@ -139,7 +139,7 @@ class GetUserWords(views.APIView):
     renderer_classes = [renderers.JSONRenderer, renderers.TemplateHTMLRenderer]
     
     def get(self, request, username):
-        user = get_object_or_404(User, username=username)
+        user = get_object_or_404(CustomUser, email=username)
 
         if request.user == user or request.user.is_superuser:
             if request.accepted_renderer.format == "json":

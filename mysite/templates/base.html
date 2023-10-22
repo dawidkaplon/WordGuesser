@@ -147,6 +147,16 @@
       font-size: 1.25rem;
     }
 
+    .nav-splitter {
+      border-top: 1px solid var(--first-color-light); 
+      margin-top: 1rem; 
+      margin-left: 15px;
+    }
+
+    .nav-bottom-links {
+      margin-top: 1rem;
+    }
+
     .show {
       left: 0;
     }
@@ -348,30 +358,42 @@
           <span class="nav_logo-name">WordGuesser</span>
         </a>
         <div class="nav_list">
-          <a href="/{{LANGUAGE_CODE}}/words/list/{{request.user}}" class="nav_link">
-            <i class="bx bx-stop nav_icon"></i>
-            <span class="nav_name">{% translate "Previous words" %}</span>
+          <a href="/{{LANGUAGE_CODE}}" class="nav_link">
+            <i class="bx bx-home-alt-2 nav_icon"></i>
+            <span class="nav_name">{% translate "Homepage" %}</span>
           </a>
-          <a href="#" class="nav_link active">
-            <i class="bx bx-stop nav_icon"></i>
-            <span class="nav_name">{% translate "Statistics" %}</span>
-          </a>
-          <a href="#" class="nav_link">
-            <i class="bx bx-stop nav_icon"></i>
-            <span class="nav_name">{% translate "option" %}3</span>
-          </a>
-          <a href="/{{LANGUAGE_CODE}}/login" class="nav_link">
-            <i class="bx bx-stop nav_icon"></i>
-            <span class="nav_name">login</span>
-          </a>
-          <a href="/{{LANGUAGE_CODE}}/register" class="nav_link">
-            <i class="bx bx-stop nav_icon"></i>
-            <span class="nav_name">{% translate "register" %}</span>
-          </a>
-          <a href="/{{LANGUAGE_CODE}}/words/get/length:6" class="nav_link">
-            <i class="bx bx-stop nav_icon"></i>
-            <span class="nav_name">{% translate "new word" %}</span>
-          </a>
+          {% if user.is_authenticated %}
+            <a href="/{{LANGUAGE_CODE}}/words/list/{{request.user}}" class="nav_link">
+              <i class="bx bx-left-arrow nav_icon"></i>
+              <span class="nav_name">{% translate "Previous words" %}</span>
+            </a>
+            <a href="#" class="nav_link">
+              <i class="bx bx-stats nav_icon"></i>
+              <span class="nav_name">{% translate "Statistics" %}</span>
+            </a>
+            <div class="nav-splitter"></div>
+          {% endif %}
+          <div class="nav-bottom-links">
+            {% if LANGUAGE_CODE == 'pl' %}
+                <a href="https://pl.wikipedia.org/wiki/Wordle" class="nav_link" target="_blank">
+                  <i class="bx bx-info-circle nav_icon"></i>
+                  <span class="nav_name">{% translate "About the game" %}</span>
+                </a>
+                <a href="https://gaming.komputronik.pl/g/gra-slowna-wordle/#rozgrywka-wordle" class="nav_link" target="_blank">
+                  <i class="bx bx-notepad nav_icon"></i>
+                  <span class="nav_name">{% translate "Rules" %}</span>
+                </a>
+            {% elif LANGUAGE_CODE == 'en' %}
+                <a href="https://en.wikipedia.org/wiki/Wordle" class="nav_link" target="_blank">
+                  <i class="bx bx-info-circle nav_icon"></i>
+                  <span class="nav_name">{% translate "About the game" %}</span>
+                </a>
+                <a href="https://www.tomsguide.com/news/what-is-wordle#section-what-are-the-wordle-rules" class="nav_link" target="_blank">
+                  <i class="bx bx-notepad nav_icon"></i>
+                  <span class="nav_name">{% translate "Rules" %}</span>
+                </a>
+            {% endif %}
+          </div>
         </div>
       </div>
       {% if user.is_authenticated %}
