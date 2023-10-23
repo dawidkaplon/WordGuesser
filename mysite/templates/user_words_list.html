@@ -9,13 +9,10 @@
     }
 </style>
 
-<h1>{% translate "Previous words" %}</h1>
+<h1>{% translate "Your previously drawn <strong>words</strong>" %}</h1>
 {% if not words %}
 <div class="empty-words-list" style="margin-top: 2rem;">
     <h5>{% translate "Your list is empty! Is it the right time to play some games?" %}</h5>
-    <div>
-        <a class="btn btn-dark" href="/{{LANGUAGE_CODE}}" style="width: 25rem; margin-top: 1rem;">{% translate "Go to Homepage" %}</a>
-    </div>
 </div>
 {% else %}
     {% for word in words %}
@@ -28,6 +25,9 @@
         </div>
     </div>
     {% endfor %}
-{% endif %}
+    {% endif %}
+<div class="go-index-button">
+    <a class="btn btn-dark" href="/{{LANGUAGE_CODE}}" style="width: 25rem; margin-top: 1.5rem;">{% translate "Go to Homepage" %}</a>
+</div>
 
 {% endblock %}

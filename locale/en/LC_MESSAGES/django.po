@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-22 23:29+0200\n"
+"POT-Creation-Date: 2023-10-23 23:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,33 +26,37 @@ msgstr ""
 msgid "Polish"
 msgstr ""
 
-#: .\mysite\templates\base.html:363
+#: .\mysite\templates\base.html:364
 msgid "Homepage"
 msgstr ""
 
-#: .\mysite\templates\base.html:368
+#: .\mysite\templates\base.html:369
 msgid "Previous words"
 msgstr ""
 
-#: .\mysite\templates\base.html:372
+#: .\mysite\templates\base.html:373
 msgid "Statistics"
 msgstr ""
 
-#: .\mysite\templates\base.html:380 .\mysite\templates\base.html:389
+#: .\mysite\templates\base.html:380
+msgid "Words from <br>the other players"
+msgstr ""
+
+#: .\mysite\templates\base.html:385 .\mysite\templates\base.html:394
 #: .\mysite\templates\index.html:34 .\mysite\templates\index.html:43
 msgid "About the game"
 msgstr ""
 
-#: .\mysite\templates\base.html:384 .\mysite\templates\base.html:393
+#: .\mysite\templates\base.html:389 .\mysite\templates\base.html:398
 #: .\mysite\templates\index.html:38 .\mysite\templates\index.html:47
 msgid "Rules"
 msgstr ""
 
-#: .\mysite\templates\base.html:402
+#: .\mysite\templates\base.html:407
 msgid "Log Out"
 msgstr ""
 
-#: .\mysite\templates\base.html:407
+#: .\mysite\templates\base.html:412
 msgid "Login/Register"
 msgstr ""
 
@@ -116,7 +120,7 @@ msgid "Go to Homepage"
 msgstr ""
 
 #: .\mysite\templates\user_words_list.html:12
-msgid "Your previous words"
+msgid "Your previously drawn <strong>words</strong>"
 msgstr ""
 
 #: .\mysite\templates\user_words_list.html:15
@@ -124,13 +128,13 @@ msgid "Your list is empty! Is it the right time to play some games?"
 msgstr ""
 
 #: .\mysite\templates\user_words_list.html:24
-#: .\mysite\templates\words_list.html:17
+#: .\mysite\templates\words_list.html:18
 msgid "Word"
 msgstr ""
 
 #: .\mysite\templates\user_words_list.html:27
 #: .\mysite\templates\word_details.html:19
-#: .\mysite\templates\words_list.html:20
+#: .\mysite\templates\words_list.html:22 .\mysite\templates\words_list.html:24
 msgid "User"
 msgstr ""
 
@@ -139,7 +143,7 @@ msgid "You Won!"
 msgstr ""
 
 #: .\mysite\templates\words_list.html:12
-msgid "Words"
+msgid "Last five <strong>words</strong> drawn<br>by other players"
 msgstr ""
 
 #: .\mysite\views.py:63
