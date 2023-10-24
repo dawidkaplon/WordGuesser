@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.utils.translation import gettext as _
 from django.utils.translation import get_language, activate
+from django.http import Http404
 
 from users.models import CustomUser
 from string import ascii_letters
@@ -27,6 +28,12 @@ def translate(language):
         activate(current_language)
 
 
+def user_statistics(request, user_email):
+    user = CustomUser.objects.get(email=user_email)
+    return render(request, "user_statistics.html", {"user": user})
+    
+
+
 class Game:
     reset_flag = True
     active_rows = 1  # Current row user is guessing
@@ -48,9 +55,12 @@ class Game:
             word_length = [str(num + 1) for num in range(len(word["word"]))]
 
             if Game.reset_flag:
-                current_user = CustomUser.objects.get(email=word["user"])
-                current_user.number_of_games_played += 1
-                current_user.save()
+                try:
+                    current_user = CustomUser.objects.get(email=word["user"])
+                    current_user.number_of_games_played += 1
+                    current_user.save()
+                except CustomUser.DoesNotExist:
+                    pass
 
                 Game.active_rows = 1
                 Game.box_colors = {}
@@ -65,62 +75,67 @@ class Game:
                 Game.reset_flag = False
 
             if request.method == "POST":
-                Game.win = 1
-
-                if "" in list(request.POST.values()):
-                    messages.warning(request, _("Given word is not long enough!"))
-
-                elif any(
-                    list(
-                        value not in ascii_letters
-                        for value in list(request.POST.values())[1:]
-                    )
-                ):
-                    messages.warning(request, _("Given value is not a letter!"))
-
+                if "give-up" in request.POST:
+                    return render(request, "loss_page.html", {"word": word})
                 else:
-                    for key, value in request.POST.items():
-                        if "token" not in key:
-                            letters[key] = value.upper()
+                    Game.win = 1
 
-                    for key, value in letters.items():
-                        if f"row{Game.active_rows}" in key:
-                            Game.keyboard_text_colors[value] = "white"
+                    if "" in list(request.POST.values()):
+                        messages.warning(request, _("Given word is not long enough!"))
 
-                            if value in word["word"]:
-                                if word["word"][int(key[-1]) - 1] == value:
-                                    """Letter is correctly guessed (correct index)"""
-                                    Game.box_colors[key] = "lightgreen"
-                                    Game.keyboard_bg_colors[value] = "lightgreen"
-                                else:
-                                    """Letter is present in the word, but not at the chosen spot"""
-                                    Game.box_colors[key] = "orange"
-                                    if (
-                                        Game.keyboard_bg_colors.get(value)
-                                        == "lightgreen"
-                                    ):
-                                        pass
+                    elif any(
+                        list(
+                            value not in ascii_letters
+                            for value in list(request.POST.values())[1:]
+                        )
+                    ):
+                        messages.warning(request, _("Given value is not a letter!"))
+
+                    else:
+                        for key, value in request.POST.items():
+                            if "token" not in key:
+                                letters[key] = value.upper()
+
+                        for key, value in letters.items():
+                            if f"row{Game.active_rows}" in key:
+                                Game.keyboard_text_colors[value] = "white"
+
+                                if value in word["word"]:
+                                    if word["word"][int(key[-1]) - 1] == value:
+                                        """Letter is correctly guessed (correct index)"""
+                                        Game.box_colors[key] = "lightgreen"
+                                        Game.keyboard_bg_colors[value] = "lightgreen"
                                     else:
-                                        Game.keyboard_bg_colors[value] = "orange"
+                                        """Letter is present in the word, but not at the chosen spot"""
+                                        Game.box_colors[key] = "orange"
+                                        if (
+                                            Game.keyboard_bg_colors.get(value)
+                                            == "lightgreen"
+                                        ):
+                                            pass
+                                        else:
+                                            Game.keyboard_bg_colors[value] = "orange"
+                                        Game.win = 0
+                                else:
+                                    """Letter is not present in the word"""
+                                    Game.box_colors[key] = "silver"
+                                    Game.keyboard_bg_colors[value] = "silver"
                                     Game.win = 0
-                            else:
-                                """Letter is not present in the word"""
-                                Game.box_colors[key] = "silver"
-                                Game.keyboard_bg_colors[value] = "silver"
-                                Game.win = 0
 
-                    Game.active_rows += 1
+                        Game.active_rows += 1
 
-                    if Game.win == 1:
-                        """Win case"""
+                        if Game.win == 1:
+                            """Win case"""
+                            try:
+                                current_user.number_of_wins += 1
+                                current_user.save()
+                            except CustomUser.DoesNotExist:
+                                pass
+                            return render(request, "win_page.html", {"word": word})
 
-                        current_user.number_of_wins += 1
-                        current_user.save()
-                        return render(request, "win_page.html", {"word": word})
-
-                    if Game.active_rows == 6:
-                        """Loss case"""
-                        return render(request, "loss_page.html", {"word": word})
+                        if Game.active_rows == 6:
+                            """Loss case"""
+                            return render(request, "loss_page.html", {"word": word})
 
             return render(
                 request,
@@ -137,8 +152,4 @@ class Game:
             )
 
         except KeyError:
-            return redirect("/404/")
-
-
-def error404(request):
-    return render(request, "error404.html")
+            raise Http404

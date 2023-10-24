@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-23 23:06+0200\n"
+"POT-Creation-Date: 2023-10-25 01:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,27 +40,31 @@ msgstr "Poprzednie słowa"
 msgid "Statistics"
 msgstr "Statystyki"
 
-#: .\mysite\templates\base.html:380
+#: .\mysite\templates\base.html:382
 msgid "Words from <br>the other players"
-msgstr "Słowa innych"
+msgstr "Słowa innych <br>graczy"
 
-#: .\mysite\templates\base.html:385 .\mysite\templates\base.html:394
+#: .\mysite\templates\base.html:387 .\mysite\templates\base.html:396
 #: .\mysite\templates\index.html:34 .\mysite\templates\index.html:43
 msgid "About the game"
 msgstr "Informacje o grze"
 
-#: .\mysite\templates\base.html:389 .\mysite\templates\base.html:398
+#: .\mysite\templates\base.html:391 .\mysite\templates\base.html:400
 #: .\mysite\templates\index.html:38 .\mysite\templates\index.html:47
 msgid "Rules"
 msgstr "Zasady"
 
-#: .\mysite\templates\base.html:407
+#: .\mysite\templates\base.html:409 .\mysite\templates\index.html:64
 msgid "Log Out"
 msgstr "Wyloguj"
 
-#: .\mysite\templates\base.html:412
+#: .\mysite\templates\base.html:414
 msgid "Login/Register"
 msgstr "Zaloguj/Zarejestruj"
+
+#: .\mysite\templates\game.html:12
+msgid "Give up"
+msgstr "Poddaj się"
 
 #: .\mysite\templates\game.html:17
 msgid "Try to guess the word!"
@@ -75,8 +79,8 @@ msgid "Test your language skills"
 msgstr "Przetestuj swoje umiejętności językowe"
 
 #: .\mysite\templates\index.html:14
-msgid "Try to guess <i><u><strong>the hidden word"
-msgstr "Spróbuj odgadnąć ukryte słowo"
+msgid "Try to guess <i><u><strong>the hidden word</i></u></strong>"
+msgstr "Spróbuj odgadnąć <i><u><strong>ukryte słowo</i></u></strong>"
 
 #: .\mysite\templates\index.html:21
 msgid "Play"
@@ -116,10 +120,34 @@ msgid "Your word was: "
 msgstr "Twoje słowo to: "
 
 #: .\mysite\templates\loss_page.html:21
-#: .\mysite\templates\user_words_list.html:17
-#: .\mysite\templates\win_page.html:21
+#: .\mysite\templates\user_statistics.html:26
+#: .\mysite\templates\user_words_list.html:30
+#: .\mysite\templates\win_page.html:21 .\mysite\templates\words_list.html:30
 msgid "Go to Homepage"
 msgstr "Wróć do strony głównej"
+
+#: .\mysite\templates\user_statistics.html:6
+msgid "Your <strong>statistics</strong>"
+msgstr "Twoje <strong>statystyki</strong>"
+
+#: .\mysite\templates\user_statistics.html:10
+msgid ""
+"It looks like you don't have any stats.<br>Is it time to play some games?"
+msgstr ""
+"Wygląda na to, że nie masz żadnych statystyk.<br>Czy to odpowiedni czas, by "
+"zagrać?"
+
+#: .\mysite\templates\user_statistics.html:15
+msgid "Games played"
+msgstr "Rozegrane gry"
+
+#: .\mysite\templates\user_statistics.html:18
+msgid "Games won"
+msgstr "Gry wygrane"
+
+#: .\mysite\templates\user_statistics.html:21
+msgid "Games lost"
+msgstr "Gry przegrane"
 
 #: .\mysite\templates\user_words_list.html:12
 msgid "Your previously drawn <strong>words</strong>"
@@ -129,12 +157,12 @@ msgstr "Twoje poprzednio wylosowane <strong>słowa</strong>"
 msgid "Your list is empty! Is it the right time to play some games?"
 msgstr "Twoja lista jest pusta! Czy to odpowiedni czas, by zagrać?"
 
-#: .\mysite\templates\user_words_list.html:24
+#: .\mysite\templates\user_words_list.html:21
 #: .\mysite\templates\words_list.html:18
 msgid "Word"
 msgstr "Słowo"
 
-#: .\mysite\templates\user_words_list.html:27
+#: .\mysite\templates\user_words_list.html:24
 #: .\mysite\templates\word_details.html:19
 #: .\mysite\templates\words_list.html:22 .\mysite\templates\words_list.html:24
 msgid "User"
@@ -149,11 +177,11 @@ msgid "Last five <strong>words</strong> drawn<br>by other players"
 msgstr ""
 "Ostatnie pięć <strong>słów</strong> wylosowanych<br>przez innych graczy"
 
-#: .\mysite\views.py:63
+#: .\mysite\views.py:84
 msgid "Given word is not long enough!"
 msgstr "Słowo nie jest wystarczająco długie!"
 
-#: .\mysite\views.py:67
+#: .\mysite\views.py:92
 msgid "Given value is not a letter!"
 msgstr "Podana wartość jest niewłaściwa!"
 
@@ -1406,6 +1434,9 @@ msgstr ""
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:248
 msgid "Connect, get help, or contribute"
 msgstr ""
+
+#~ msgid "Logout"
+#~ msgstr "Wyloguj się"
 
 #~ msgid "Previous words<br>from players"
 #~ msgstr "Poprzednie słowa<br>innych graczy"

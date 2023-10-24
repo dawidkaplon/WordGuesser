@@ -5,12 +5,12 @@
 {% load custom_filters %}
 
 {% block content %}
-
 <div class="rows-container">
     <form method="POST" name="game-form">
         {% csrf_token %}
         <button class="btn btn-dark btn-lg" type="submit" hidden>save</button>
-            
+        <button class="btn btn-dark give-up-button" type="submit" name="give-up">{% translate "Give up" %}</button>
+        
             {% if active_rows == 1 %}
 
             <div class="centered-message" id="centered-message">

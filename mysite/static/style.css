@@ -78,6 +78,12 @@ input:focus {
   }
 }
 
+.give-up-button {
+  position: fixed;
+  margin-left: 40%;
+  margin-top: 1%;
+}
+
 /* Index template */
 .index-header {
   font-size: 4rem;
@@ -113,6 +119,15 @@ input:focus {
 .menu button {
   width: 400px;
   margin-top: 0.5rem;
+}
+
+.index-description {
+  list-style-type: none;
+  padding: 0;
+}
+
+.index-description li {
+  margin-bottom: 5px; /* Adjust the margin as needed */
 }
 
 /* On-screen keyboard */

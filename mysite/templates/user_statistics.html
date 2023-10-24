@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+
+<h1>{% translate "Your <strong>statistics</strong>" %}</h1>
+
+{% if not user.number_of_games_played %}
+    <div class="empty-user-stats" style="margin-top: 2rem;">
+        <h5>{% translate "It looks like you don't have any stats.<br>Is it time to play some games?" %}</h5>
+    </div>
+{% else %}
+    <div class="stats-container" style="margin-top: 1.4rem;">
+        <div class="games-played" style="font-size: 1.4rem">
+            {% translate "Games played" %}: <strong>{{user.number_of_games_played}}</strong></a>
+        </div>
+        <div class="wins" style="color: green; margin-top: .5rem; font-size: 1rem;">
+            {% translate "Games won" %}: <strong>{{user.number_of_wins}}</strong>
+        </div>
+        <div class="losses" style="color: red; font-size: 1rem;">
+            {% translate "Games lost" %}: <strong>{{user.number_of_losses}}</strong>
+        </div>
+    </div>
+{% endif %}
+<div class="go-index-button">
+    <a class="btn btn-dark" href="/{{LANGUAGE_CODE}}" style="width: 25rem; margin-top: 1.5rem;">{% translate "Go to Homepage" %}</a>
+</div>
+
+{% endblock %}

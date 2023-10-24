@@ -19,8 +19,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     objects = CustomUserManager()
 
+    @property
     def number_of_losses(self):
-        return self.games_played - self.number_of_wins
+        return self.number_of_games_played - self.number_of_wins
     
     def __str__(self):
         return self.email
