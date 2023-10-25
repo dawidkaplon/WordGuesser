@@ -147,7 +147,7 @@ class GetUserWords(views.APIView):
                 return Response({"words": serializer.data}, status=status.HTTP_200_OK)
 
             if request.accepted_renderer.format == "html":
-                all_words = Word.objects.filter(user=user)
+                all_words = list(reversed(Word.objects.filter(user=user)))[:5]
                 return Response(
                     {"words": all_words, "user": user},
                     template_name="user_words_list.html",

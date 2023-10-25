@@ -3,7 +3,12 @@
 
 {% block content %}
 
-<h1>{% translate "Your <strong>statistics</strong>" %}</h1>
+{% if request.user.is_superuser %}
+    <h1>{{user}}&nbsp;&nbsp;{% translate "<strong>statistics</strong>" %}</h1>
+{% else %}
+    <h1>{% translate "Your <strong>statistics</strong>" %}</h1>
+{% endif %}
+
 
 {% if not user.number_of_games_played %}
     <div class="empty-user-stats" style="margin-top: 2rem;">

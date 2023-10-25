@@ -19,7 +19,7 @@
     </div>
     <div class="word-user">
         {% if user.is_superuser %}
-            {% translate "User" %}: {{word.user}}
+            {% translate "User" %}: <a href="/{{LANGUAGE_CODE}}/statistics/{{word.user}}"><strong>{{word.user}}</strong></a>
         {% else %}
             {% translate "User" %}: *****
         {% endif %}

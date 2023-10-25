@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-25 01:38+0200\n"
+"POT-Creation-Date: 2023-10-25 17:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -120,49 +120,57 @@ msgid "Your word was: "
 msgstr "Twoje słowo to: "
 
 #: .\mysite\templates\loss_page.html:21
-#: .\mysite\templates\user_statistics.html:26
-#: .\mysite\templates\user_words_list.html:30
+#: .\mysite\templates\user_statistics.html:31
+#: .\mysite\templates\user_words_list.html:36
 #: .\mysite\templates\win_page.html:21 .\mysite\templates\words_list.html:30
 msgid "Go to Homepage"
 msgstr "Wróć do strony głównej"
 
-#: .\mysite\templates\user_statistics.html:6
+#: .\mysite\templates\user_statistics.html:7
+msgid "<strong>statistics</strong>"
+msgstr "<strong>statystyki</strong>"
+
+#: .\mysite\templates\user_statistics.html:9
 msgid "Your <strong>statistics</strong>"
 msgstr "Twoje <strong>statystyki</strong>"
 
-#: .\mysite\templates\user_statistics.html:10
+#: .\mysite\templates\user_statistics.html:15
 msgid ""
 "It looks like you don't have any stats.<br>Is it time to play some games?"
 msgstr ""
 "Wygląda na to, że nie masz żadnych statystyk.<br>Czy to odpowiedni czas, by "
 "zagrać?"
 
-#: .\mysite\templates\user_statistics.html:15
+#: .\mysite\templates\user_statistics.html:20
 msgid "Games played"
 msgstr "Rozegrane gry"
 
-#: .\mysite\templates\user_statistics.html:18
+#: .\mysite\templates\user_statistics.html:23
 msgid "Games won"
 msgstr "Gry wygrane"
 
-#: .\mysite\templates\user_statistics.html:21
+#: .\mysite\templates\user_statistics.html:26
 msgid "Games lost"
 msgstr "Gry przegrane"
 
-#: .\mysite\templates\user_words_list.html:12
+#: .\mysite\templates\user_words_list.html:13
+msgid "<strong>words</strong>"
+msgstr "<strong>słowa</strong>"
+
+#: .\mysite\templates\user_words_list.html:15
 msgid "Your previously drawn <strong>words</strong>"
 msgstr "Twoje poprzednio wylosowane <strong>słowa</strong>"
 
-#: .\mysite\templates\user_words_list.html:15
+#: .\mysite\templates\user_words_list.html:20
 msgid "Your list is empty! Is it the right time to play some games?"
 msgstr "Twoja lista jest pusta! Czy to odpowiedni czas, by zagrać?"
 
-#: .\mysite\templates\user_words_list.html:21
+#: .\mysite\templates\user_words_list.html:26
 #: .\mysite\templates\words_list.html:18
 msgid "Word"
 msgstr "Słowo"
 
-#: .\mysite\templates\user_words_list.html:24
+#: .\mysite\templates\user_words_list.html:29
 #: .\mysite\templates\word_details.html:19
 #: .\mysite\templates\words_list.html:22 .\mysite\templates\words_list.html:24
 msgid "User"
@@ -177,11 +185,11 @@ msgid "Last five <strong>words</strong> drawn<br>by other players"
 msgstr ""
 "Ostatnie pięć <strong>słów</strong> wylosowanych<br>przez innych graczy"
 
-#: .\mysite\views.py:84
+#: .\mysite\views.py:87
 msgid "Given word is not long enough!"
 msgstr "Słowo nie jest wystarczająco długie!"
 
-#: .\mysite\views.py:92
+#: .\mysite\views.py:95
 msgid "Given value is not a letter!"
 msgstr "Podana wartość jest niewłaściwa!"
 

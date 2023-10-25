@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.utils.translation import gettext as _
 from django.utils.translation import get_language, activate
 from django.http import Http404
@@ -27,12 +28,13 @@ def translate(language):
     finally:
         activate(current_language)
 
-
 def user_statistics(request, user_email):
     user = CustomUser.objects.get(email=user_email)
-    return render(request, "user_statistics.html", {"user": user})
+    if user == request.user or request.user.is_superuser:
+        return render(request, "user_statistics.html", {"user": user})
+    else:
+        raise Http404
     
-
 
 class Game:
     reset_flag = True
@@ -129,7 +131,7 @@ class Game:
                             try:
                                 current_user.number_of_wins += 1
                                 current_user.save()
-                            except CustomUser.DoesNotExist:
+                            except:
                                 pass
                             return render(request, "win_page.html", {"word": word})
 
