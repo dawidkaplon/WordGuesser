@@ -18,7 +18,9 @@
 <form method="POST">
     {% csrf_token %}
     <div class="input-group mb-2 length-choice">
-        <button class="btn btn-dark btn-lg" type="submit" name="play-button">{% translate "Play" %}</button>
+        <div class="button-container">
+            <button class="btn btn-dark btn-lg play-button" type="submit" name="play-button">{% translate "Play" %}</button>
+        </div>
         <select class="form-select" id="inputGroupSelect03" name="word_length"
             aria-label="Example select with button addon">
             <option selected value="5" name="five-letters">{% translate "5 letters" %}</option>
@@ -70,5 +72,20 @@
 
 </form>
 
+<script>
+    // Check if play-button was clicked, then change the 
+    // cursor to wait-mode until word is found and new template
+    // is loaded
+    function setCursorToWait() {
+        document.body.style.cursor = "wait";
+    }
+
+    function resetCursor() {
+        document.body.style.cursor = "default";
+    }
+
+    window.addEventListener("beforeunload", setCursorToWait);
+
+</script>
 
 {% endblock %}

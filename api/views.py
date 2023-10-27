@@ -2,12 +2,13 @@ from django.shortcuts import redirect
 from django.http import JsonResponse, Http404
 from django.utils.translation import get_language
 from django.shortcuts import get_object_or_404
-
 from rest_framework.response import Response
 from rest_framework import renderers, views, status
+import threading
 
 from .serializers import WordSerializer
 from .models import Word
+from api.scraping.webscraper import WebScraper
 from mysite.views import Game
 from users.models import CustomUser
 
@@ -20,9 +21,14 @@ class GetWord(views.APIView):
     def get(self, request, length, language):
         current_language = get_language()
         webscraper = Word()
-        webscraper.fetch_data(length, language)
+        for _ in range(10):
+            thread = threading.Thread(target=webscraper.fetch_data, args=(length, language))
+            thread.start()
 
-        if webscraper.word is not None:
+        found_word = webscraper.result_queue.get()
+
+        if found_word is not None:
+            WebScraper.word_chosen = False
             if request.accepted_renderer.format == "json":
                 serializer = WordSerializer(webscraper)
                 return JsonResponse(
@@ -32,7 +38,7 @@ class GetWord(views.APIView):
             if request.accepted_renderer.format == "html":
                 if request.user.is_authenticated:
                     word = Word(
-                        word=webscraper.word,
+                        word=found_word,
                         definition=webscraper.definition,
                         user=request.user
                     )
@@ -43,7 +49,7 @@ class GetWord(views.APIView):
                     }
                 else:
                     word = Word(
-                        word=webscraper.word,
+                        word=found_word,
                         definition=webscraper.definition,
                         user=None,
                     )
@@ -54,7 +60,7 @@ class GetWord(views.APIView):
                     }
 
                 word.save()  # Create a found word and save it in the database
-
+                
                 Game.reset_flag = True
                 return redirect(f"/{current_language}/game/")
 

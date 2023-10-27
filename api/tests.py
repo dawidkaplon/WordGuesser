@@ -16,7 +16,6 @@ class WordTest(TestCase):
     
     random_id = random.randint(1, 5)
     webscraper = Word()
-    webscraper.fetch_data(6, "en")
 
     def setUp(self):
 
@@ -25,6 +24,7 @@ class WordTest(TestCase):
                 word=f"test{str(w)}",
                 definition="This word is being tested.",
             )
+        webscraper.fetch_data(6, "en")
 
     def test_word_length(self):
         """

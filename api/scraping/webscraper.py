@@ -1,6 +1,7 @@
 from django.db import models
 from bs4 import BeautifulSoup
 from string import ascii_letters
+from queue import Queue
 
 import logging
 import random
@@ -25,6 +26,8 @@ class WebScraper:
     word = models.TextField(default="")
     definition = models.TextField(default="")
     test_flag = False
+    result_queue = Queue()
+    word_chosen = False
 
     def fetch_data(self, length, language):
         """
@@ -40,7 +43,7 @@ class WebScraper:
             str: The scraped data (both word and it's definition) from the website.
         """
 
-        while True:
+        while not self.word_chosen:
 
             if language == "en":
                 random_letter = random.choice(list("abcdefghijklmnoprstuw"))
@@ -53,7 +56,6 @@ class WebScraper:
                     random_index = random.randint(
                         1, 351
                     )  # Choose random word at selected page (around 350 results per page)
-
                     self.word = (
                         soup.find("div", class_="sw3o2JSDU4SEB11F3dUQ")
                         .find_all("a")[random_index]
@@ -76,7 +78,6 @@ class WebScraper:
 
                 try:
                     random_index = random.randint(1, 20)
-
                     self.word = (
                         soup.find("div", class_="col-xs-12 col-sm-4")
                         .find_all("a")[random_index]
@@ -88,11 +89,11 @@ class WebScraper:
 
                 except (AttributeError, IndexError):
                     continue
-            
-            logging.info("search for a matching word..")
 
-            if len(self.word) == length:
-                if all([letter in ascii_letters for letter in self.word]):
+            if len(self.word) == length and all([letter in ascii_letters for letter in self.word]):
+                    self.result_queue.put(self.word)
+                    self.result_queue = Queue()
+                    self.word_chosen = True
                     logging.info(f"word '{self.word}' has been found")
                     break
             else:
