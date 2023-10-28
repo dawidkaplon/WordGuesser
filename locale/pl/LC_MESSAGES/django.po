@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-25 17:38+0200\n"
+"POT-Creation-Date: 2023-10-28 16:57+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,16 +45,16 @@ msgid "Words from <br>the other players"
 msgstr "Słowa innych <br>graczy"
 
 #: .\mysite\templates\base.html:387 .\mysite\templates\base.html:396
-#: .\mysite\templates\index.html:34 .\mysite\templates\index.html:43
+#: .\mysite\templates\index.html:36 .\mysite\templates\index.html:45
 msgid "About the game"
 msgstr "Informacje o grze"
 
 #: .\mysite\templates\base.html:391 .\mysite\templates\base.html:400
-#: .\mysite\templates\index.html:38 .\mysite\templates\index.html:47
+#: .\mysite\templates\index.html:40 .\mysite\templates\index.html:49
 msgid "Rules"
 msgstr "Zasady"
 
-#: .\mysite\templates\base.html:409 .\mysite\templates\index.html:64
+#: .\mysite\templates\base.html:409 .\mysite\templates\index.html:66
 msgid "Log Out"
 msgstr "Wyloguj"
 
@@ -82,32 +82,32 @@ msgstr "Przetestuj swoje umiejętności językowe"
 msgid "Try to guess <i><u><strong>the hidden word</i></u></strong>"
 msgstr "Spróbuj odgadnąć <i><u><strong>ukryte słowo</i></u></strong>"
 
-#: .\mysite\templates\index.html:21
+#: .\mysite\templates\index.html:22
 msgid "Play"
 msgstr "Graj"
 
-#: .\mysite\templates\index.html:24
+#: .\mysite\templates\index.html:26
 msgid "5 letters"
 msgstr "5 liter"
 
-#: .\mysite\templates\index.html:25
+#: .\mysite\templates\index.html:27
 msgid "6 letters"
 msgstr "6 liter"
 
-#: .\mysite\templates\index.html:26
+#: .\mysite\templates\index.html:28
 msgid "7 letters"
 msgstr "7 liter"
 
-#: .\mysite\templates\index.html:27
+#: .\mysite\templates\index.html:29
 msgid "8 letters"
 msgstr "8 liter"
 
-#: .\mysite\templates\index.html:54
+#: .\mysite\templates\index.html:56
 #: .\register\templates\registration\login.html:20
 msgid "Login"
 msgstr "Zaloguj się"
 
-#: .\mysite\templates\index.html:58
+#: .\mysite\templates\index.html:60
 msgid "Get started"
 msgstr "Rejestracja"
 
@@ -162,8 +162,8 @@ msgid "Your previously drawn <strong>words</strong>"
 msgstr "Twoje poprzednio wylosowane <strong>słowa</strong>"
 
 #: .\mysite\templates\user_words_list.html:20
-msgid "Your list is empty! Is it the right time to play some games?"
-msgstr "Twoja lista jest pusta! Czy to odpowiedni czas, by zagrać?"
+msgid "Your list is empty! <br>Is it time to play some games?"
+msgstr "Twoja lista jest pusta! <br>Czy to odpowiedni czas, by zagrać?"
 
 #: .\mysite\templates\user_words_list.html:26
 #: .\mysite\templates\words_list.html:18
@@ -185,11 +185,11 @@ msgid "Last five <strong>words</strong> drawn<br>by other players"
 msgstr ""
 "Ostatnie pięć <strong>słów</strong> wylosowanych<br>przez innych graczy"
 
-#: .\mysite\views.py:87
+#: .\mysite\views.py:85
 msgid "Given word is not long enough!"
 msgstr "Słowo nie jest wystarczająco długie!"
 
-#: .\mysite\views.py:95
+#: .\mysite\views.py:93
 msgid "Given value is not a letter!"
 msgstr "Podana wartość jest niewłaściwa!"
 
