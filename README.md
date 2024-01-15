@@ -28,19 +28,25 @@ These instructions will help you set up and run the project on your local machin
 
 ### Installation
 
-***1. Create a virtual environment & activate it:***
+***1. Clone the repo:***
+
+```sh
+git clone https://github.com/dawidkaplon/django-WordGuesser.git
+cd django-WordGuesser
+```
+***2. Create a virtual environment & activate it:***
 
 ```sh
 python -m venv venv
 venv\Scripts\activate
 ```
    
-***2. Install project dependencies from requirements.txt:***
+***3. Install project dependencies from requirements.txt:***
 ```sh
 pip install -r requirements.txt
 ```
 
-***3. Set the Secret Key***<br><br>
+***4. Set the Secret Key***<br><br>
 In order to run the local server, You have to set new Secret Key in ***settings.py*** file.
 
 - **Access the Python Interactive Shell:**
@@ -61,13 +67,13 @@ In order to run the local server, You have to set new Secret Key in ***settings.
    SECRET_KEY = 'qw^9ej(l4vq%d_06xig$vw+b(-@#00@8l7jlv77=sq5r_sf3nu'
    ```
 
-***4. Exit the shell using exit() and then make necessary migrations:***
+***5. Exit the shell using exit() and then make necessary migrations:***
 ```sh
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-***5. Run the local server:***
+***6. Run the local server:***
 ```sh
 python manage.py runserver
 ```
