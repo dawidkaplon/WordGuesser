@@ -31,8 +31,8 @@ These instructions will help you set up and run the project on your local machin
 ***1. Clone the repo:***
 
 ```sh
-git clone https://github.com/dawidkaplon/django-WordGuesser.git
-cd django-WordGuesser
+git clone https://github.com/dawidkaplon/WordGuesser.git
+cd WordGuesser
 ```
 ***2. Create a virtual environment & activate it:***
 
@@ -87,6 +87,8 @@ python manage.py test
 ```
 
 ## Docker operations
+
+***To run the commands below, you need to be in directory where the Dockerfile is located***
 
 1. Build the image locally with the following command:
 ```sh
