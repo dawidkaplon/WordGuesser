@@ -90,12 +90,13 @@ class WebScraper:
                 except (AttributeError, IndexError):
                     continue
 
-            if len(self.word) == length and all([letter in ascii_letters for letter in self.word]):
-                    self.result_queue.put(self.word)
-                    self.result_queue = Queue()
-                    self.word_chosen = True
-                    logging.info(f"word '{self.word}' has been found")
-                    break
+            if len(self.word) == length and all(
+                [letter in ascii_letters for letter in self.word]
+            ):
+                self.result_queue.put(self.word)
+                self.result_queue = Queue()
+                self.word_chosen = True
+                logging.info(f"word '{self.word}' has been found")
+                break
             else:
                 continue  # Start the word search again if the previous word did not meet the criteria
-

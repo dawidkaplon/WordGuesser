@@ -147,3 +147,14 @@ docker run -p 8000:8000 wordguesser
 ![WebsitePreview10](https://github.com/dawidkaplon/django-WordGuesser/blob/main/mysite/static/readme_preview/win-page.png)
 
 
+## TO-DO:
+
+- Improve swagger docs
+- Secure endpoints with user authentication
+- Create custom permission classes
+- Switch to PostgreSQL database
+- Create docker migrations service
+- Change these terrible sounds or completely remove them
+- Also visual changes should be made
+- Add dependabot
+- Add pre-commit hook

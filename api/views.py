@@ -22,7 +22,9 @@ class GetWord(views.APIView):
         current_language = get_language()
         webscraper = Word()
         for _ in range(10):
-            thread = threading.Thread(target=webscraper.fetch_data, args=(length, language))
+            thread = threading.Thread(
+                target=webscraper.fetch_data, args=(length, language)
+            )
             thread.start()
 
         found_word = webscraper.result_queue.get()
@@ -40,12 +42,12 @@ class GetWord(views.APIView):
                     word = Word(
                         word=found_word,
                         definition=webscraper.definition,
-                        user=request.user
+                        user=request.user,
                     )
                     request.session["word"] = {
                         "word": word.word,
                         "definition": word.definition,
-                        "user": str(word.user)
+                        "user": str(word.user),
                     }
                 else:
                     word = Word(
@@ -60,7 +62,7 @@ class GetWord(views.APIView):
                     }
 
                 word.save()  # Create a found word and save it in the database
-                
+
                 Game.reset_flag = True
                 return redirect(f"/{current_language}/game/")
 
@@ -91,6 +93,7 @@ class GetWordDetails(views.APIView):
 
         if request.accepted_renderer.format == "json":
             return JsonResponse({"word": serializer.data}, status=status.HTTP_200_OK)
+
 
 class GetList(views.APIView):
     renderer_classes = [renderers.JSONRenderer, renderers.TemplateHTMLRenderer]
@@ -138,11 +141,11 @@ class AddWord(views.APIView):
                 )
         else:
             raise Http404
-            
+
 
 class GetUserWords(views.APIView):
     renderer_classes = [renderers.JSONRenderer, renderers.TemplateHTMLRenderer]
-    
+
     def get(self, request, username):
         user = get_object_or_404(CustomUser, email=username)
 
