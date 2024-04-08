@@ -1,7 +1,5 @@
 # WordGuesser
 
-🚨 **Note:** This guide assumes a Windows OS.
-
 ## Description
 
 #### The Classic Wordle Challenge 
@@ -22,7 +20,6 @@ These instructions will help you set up and run the project on your local machin
 
 ### Prerequisites
 
-- Windows OS
 - Python installed
 - Docker (if you plan to use Docker)<br><br>
 
@@ -156,5 +153,4 @@ docker run -p 8000:8000 wordguesser
 - Create docker migrations service
 - Change these terrible sounds or completely remove them
 - Also visual changes should be made
-- Add dependabot
 - Add pre-commit hook
