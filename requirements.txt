@@ -16,7 +16,7 @@ soupsieve==2.4.1
 sqlparse==0.4.4
 typing_extensions==4.7.1
 tzdata==2023.3
-urllib3==2.0.4
+urllib3==2.2.1
 websocket-client==1.6.2
 django-rest-swagger==2.2.0
 drf_yasg==1.21.5
