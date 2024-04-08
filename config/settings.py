@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     "crispy_bootstrap4",
     "rest_framework",
     "drf_yasg",
-    
+
     "mysite",
     "api",
     "register",

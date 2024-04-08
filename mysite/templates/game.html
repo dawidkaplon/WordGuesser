@@ -10,13 +10,13 @@
         {% csrf_token %}
         <button class="btn btn-dark btn-lg" type="submit" hidden>save</button>
         <button class="btn btn-dark give-up-button" type="submit" name="give-up">{% translate "Give up" %}</button>
-        
+
             {% if active_rows == 1 %}
 
             <div class="centered-message" id="centered-message">
                 {% translate "Try to guess the word!" %}
             </div>
-            
+
             <div class="d-flex justify-content-center align-items-center">
                 <!-- Get row and column numbers with actual corresponding values from letters dict -->
                 {% for index in word_length %}
@@ -57,11 +57,11 @@
 
 
             {% elif active_rows == 2 %}
-            
+
             <audio controls autoplay hidden>
                 <source src="{% static 'next-level-sound.mp3' %}">
             </audio>
-            
+
             <div class="d-flex justify-content-center align-items-center">
                 {% for index in word_length %}
                     {% with input_name="row1"|add:"col"|add:index %}
@@ -80,7 +80,7 @@
             </div>
 
             <div class="d-flex justify-content-center align-items-center">
-                {% for index in word_length %}   
+                {% for index in word_length %}
                     {% with input_name="row2"|add:"col"|add:index %}
                         {% for key, value in letters.items %}
                             {% if key == input_name %}
@@ -97,26 +97,26 @@
                     <input class="input-field" disabled />
                 {% endfor %}
             </div>
-            
+
             <div class="d-flex justify-content-center align-items-center">
                 {% for index in word_length %}
                     <input class="input-field" disabled />
                 {% endfor %}
             </div>
-            
+
             <div class="d-flex justify-content-center align-items-center">
                 {% for index in word_length %}
                     <input class="input-field" disabled />
                 {% endfor %}
             </div>
-            
+
 
             {% elif active_rows == 3 %}
 
             <audio controls autoplay hidden>
                 <source src="{% static 'next-level-sound.mp3' %}">
             </audio>
-            
+
             <div class="d-flex justify-content-center align-items-center">
                 {% for index in word_length %}
                     {% with input_name="row1"|add:"col"|add:index %}
@@ -152,7 +152,7 @@
             </div>
 
             <div class="d-flex justify-content-center align-items-center">
-                {% for index in word_length %}  
+                {% for index in word_length %}
                     {% with input_name="row3"|add:"col"|add:index %}
                         {% for key, value in letters.items %}
                             {% if key == input_name %}
@@ -163,7 +163,7 @@
                     {% endwith %}
                 {% endfor %}
             </div>
-            
+
             <div class="d-flex justify-content-center align-items-center">
                 {% for index in word_length %}
                     <input class="input-field" disabled />
@@ -175,14 +175,14 @@
                     <input class="input-field" disabled />
                 {% endfor %}
             </div>
-            
+
 
             {% elif active_rows == 4 %}
-            
+
             <audio controls autoplay hidden>
                 <source src="{% static 'next-level-sound.mp3' %}">
             </audio>
-            
+
             <div class="d-flex justify-content-center align-items-center">
                 {% for index in word_length %}
                     {% with input_name="row1"|add:"col"|add:index %}
@@ -235,7 +235,7 @@
             </div>
 
             <div class="d-flex justify-content-center align-items-center">
-                {% for index in word_length %}  
+                {% for index in word_length %}
                     {% with input_name="row4"|add:"col"|add:index %}
                         {% for key, value in letters.items %}
                             {% if key == input_name %}
@@ -253,13 +253,13 @@
                 {% endfor %}
             </div>
 
-            
+
             {% elif active_rows == 5 %}
-            
+
             <audio controls autoplay hidden>
                 <source src="{% static 'next-level-sound.mp3' %}">
             </audio>
-            
+
             <div class="d-flex justify-content-center align-items-center">
                 {% for index in word_length %}
                     {% with input_name="row1"|add:"col"|add:index %}
@@ -329,7 +329,7 @@
             </div>
 
             <div class="d-flex justify-content-center align-items-center">
-                {% for index in word_length %}  
+                {% for index in word_length %}
                     {% with input_name="row5"|add:"col"|add:index %}
                         {% for key, value in letters.items %}
                             {% if key == input_name %}
@@ -347,66 +347,66 @@
 <div class="keyboard">
     <div class="row mt-4">
         <div class="col-md-6 offset-md-3">
-            <button class="btn btn-dark btn-lg top" id="buttonQ" 
+            <button class="btn btn-dark btn-lg top" id="buttonQ"
             style="color: {{keyboard_text_colors|get_text_color:'Q'}}; background-color: {{ keyboard_bg_colors|get_bg_color:'Q' }}">Q</button>
-            <button class="btn btn-dark btn-lg top" id="buttonW" 
+            <button class="btn btn-dark btn-lg top" id="buttonW"
             style="color: {{keyboard_text_colors|get_text_color:'W'}}; background-color: {{ keyboard_bg_colors|get_bg_color:'W' }}">W</button>
-            <button class="btn btn-dark btn-lg top" id="buttonE" 
+            <button class="btn btn-dark btn-lg top" id="buttonE"
             style="color: {{keyboard_text_colors|get_text_color:'E'}}; background-color: {{ keyboard_bg_colors|get_bg_color:'E' }}">E</button>
-            <button class="btn btn-dark btn-lg top" id="buttonR" 
+            <button class="btn btn-dark btn-lg top" id="buttonR"
             style="color: {{keyboard_text_colors|get_text_color:'R'}}; background-color: {{ keyboard_bg_colors|get_bg_color:'R' }}">R</button>
-            <button class="btn btn-dark btn-lg top" id="buttonT" 
+            <button class="btn btn-dark btn-lg top" id="buttonT"
             style="color: {{keyboard_text_colors|get_text_color:'T'}}; background-color: {{ keyboard_bg_colors|get_bg_color:'T' }}">T</button>
-            <button class="btn btn-dark btn-lg top" id="buttonY" 
+            <button class="btn btn-dark btn-lg top" id="buttonY"
             style="color: {{keyboard_text_colors|get_text_color:'Y'}}; background-color: {{ keyboard_bg_colors|get_bg_color:'Y' }}">Y</button>
-            <button class="btn btn-dark btn-lg top" id="buttonU" 
+            <button class="btn btn-dark btn-lg top" id="buttonU"
             style="color: {{keyboard_text_colors|get_text_color:'U'}}; background-color: {{ keyboard_bg_colors|get_bg_color:'U' }}">U</button>
-            <button class="btn btn-dark btn-lg top" id="buttonI" 
+            <button class="btn btn-dark btn-lg top" id="buttonI"
             style="color: {{keyboard_text_colors|get_text_color:'I'}}; background-color: {{ keyboard_bg_colors|get_bg_color:'I' }}">I</button>
-            <button class="btn btn-dark btn-lg top" id="buttonO" 
+            <button class="btn btn-dark btn-lg top" id="buttonO"
             style="color: {{keyboard_text_colors|get_text_color:'O'}}; background-color: {{ keyboard_bg_colors|get_bg_color:'O' }}">O</button>
-            <button class="btn btn-dark btn-lg top" id="buttonP" 
+            <button class="btn btn-dark btn-lg top" id="buttonP"
             style="color: {{keyboard_text_colors|get_text_color:'P'}}; background-color: {{ keyboard_bg_colors|get_bg_color:'P' }}">P</button>
         </div>
     </div>
     <div class="row mt-1">
         <div class="col-md-6 offset-md-3">
-            <button class="btn btn-dark btn-lg mid" id="buttonA" 
+            <button class="btn btn-dark btn-lg mid" id="buttonA"
             style="color: {{keyboard_text_colors|get_text_color:'A'}}; background-color: {{ keyboard_bg_colors|get_bg_color:'A' }}">A</button>
-            <button class="btn btn-dark btn-lg mid" id="buttonS" 
+            <button class="btn btn-dark btn-lg mid" id="buttonS"
             style="color: {{keyboard_text_colors|get_text_color:'S'}}; background-color: {{ keyboard_bg_colors|get_bg_color:'S' }}">S</button>
-            <button class="btn btn-dark btn-lg mid" id="buttonD" 
+            <button class="btn btn-dark btn-lg mid" id="buttonD"
             style="color: {{keyboard_text_colors|get_text_color:'D'}}; background-color: {{ keyboard_bg_colors|get_bg_color:'D' }}">D</button>
-            <button class="btn btn-dark btn-lg mid" id="buttonF" 
+            <button class="btn btn-dark btn-lg mid" id="buttonF"
             style="color: {{keyboard_text_colors|get_text_color:'F'}}; background-color: {{ keyboard_bg_colors|get_bg_color:'F' }}">F</button>
-            <button class="btn btn-dark btn-lg mid" id="buttonG" 
+            <button class="btn btn-dark btn-lg mid" id="buttonG"
             style="color: {{keyboard_text_colors|get_text_color:'G'}}; background-color: {{ keyboard_bg_colors|get_bg_color:'G' }}">G</button>
-            <button class="btn btn-dark btn-lg mid" id="buttonH" 
+            <button class="btn btn-dark btn-lg mid" id="buttonH"
             style="color: {{keyboard_text_colors|get_text_color:'H'}}; background-color: {{ keyboard_bg_colors|get_bg_color:'H' }}">H</button>
-            <button class="btn btn-dark btn-lg mid" id="buttonJ" 
+            <button class="btn btn-dark btn-lg mid" id="buttonJ"
             style="color: {{keyboard_text_colors|get_text_color:'J'}}; background-color: {{ keyboard_bg_colors|get_bg_color:'J' }}">J</button>
-            <button class="btn btn-dark btn-lg mid" id="buttonK" 
+            <button class="btn btn-dark btn-lg mid" id="buttonK"
             style="color: {{keyboard_text_colors|get_text_color:'K'}}; background-color: {{ keyboard_bg_colors|get_bg_color:'K' }}">K</button>
-            <button class="btn btn-dark btn-lg mid" id="buttonL" 
+            <button class="btn btn-dark btn-lg mid" id="buttonL"
             style="color: {{keyboard_text_colors|get_text_color:'L'}}; background-color: {{ keyboard_bg_colors|get_bg_color:'L' }}">L</button>
         </div>
     </div>
     <div class="row mt-1">
         <div class="col-md-6 offset-md-3">
             <button class="btn btn-dark btn-lg down" id="buttonBackspace">&nbsp⌫&nbsp</button>
-            <button class="btn btn-dark btn-lg down" id="buttonZ" 
+            <button class="btn btn-dark btn-lg down" id="buttonZ"
             style="color: {{keyboard_text_colors|get_text_color:'Z'}}; background-color: {{ keyboard_bg_colors|get_bg_color:'Z' }}">Z</button>
-            <button class="btn btn-dark btn-lg down" id="buttonX" 
+            <button class="btn btn-dark btn-lg down" id="buttonX"
             style="color: {{keyboard_text_colors|get_text_color:'X'}}; background-color: {{ keyboard_bg_colors|get_bg_color:'X' }}">X</button>
-            <button class="btn btn-dark btn-lg down" id="buttonC" 
+            <button class="btn btn-dark btn-lg down" id="buttonC"
             style="color: {{keyboard_text_colors|get_text_color:'C'}}; background-color: {{ keyboard_bg_colors|get_bg_color:'C' }}">C</button>
-            <button class="btn btn-dark btn-lg down" id="buttonV" 
+            <button class="btn btn-dark btn-lg down" id="buttonV"
             style="color: {{keyboard_text_colors|get_text_color:'V'}}; background-color: {{ keyboard_bg_colors|get_bg_color:'V' }}">V</button>
-            <button class="btn btn-dark btn-lg down" id="buttonB" 
+            <button class="btn btn-dark btn-lg down" id="buttonB"
             style="color: {{keyboard_text_colors|get_text_color:'B'}}; background-color: {{ keyboard_bg_colors|get_bg_color:'B' }}">B</button>
-            <button class="btn btn-dark btn-lg down" id="buttonN" 
+            <button class="btn btn-dark btn-lg down" id="buttonN"
             style="color: {{keyboard_text_colors|get_text_color:'N'}}; background-color: {{ keyboard_bg_colors|get_bg_color:'N' }}">N</button>
-            <button class="btn btn-dark btn-lg down" id="buttonM" 
+            <button class="btn btn-dark btn-lg down" id="buttonM"
             style="color: {{keyboard_text_colors|get_text_color:'M'}}; background-color: {{ keyboard_bg_colors|get_bg_color:'M' }}">M</button>
             <button class="btn btn-dark btn-lg down" id="buttonEnter">Enter</button>
         </div>
@@ -478,7 +478,7 @@
         const centeredMessage = document.getElementById("centered-message");
 
         centeredMessage.style.display = "block";
-        
+
         // Hide the centered message after 1.5 seconds
         setTimeout(function() {
             centeredMessage.style.display = "none";

@@ -13,7 +13,7 @@ class WordTest(TestCase):
     global webscraper, client, random_id
 
     client = APIClient()
-    
+
     random_id = random.randint(1, 5)
     webscraper = Word()
 
@@ -103,7 +103,7 @@ class WordTest(TestCase):
 
 
 class URLTest(TestCase):
-    
+
     def test_fetch_word(self):
         response = client.get("/en/words/get/length:6", format="json")
         self.assertEqual(response.status_code, 201)

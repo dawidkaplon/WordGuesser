@@ -33,7 +33,7 @@ def user_statistics(request, user_email):
         return render(request, "user_statistics.html", {"user": user})
     else:
         raise Http404
-    
+
 
 class Game:
     reset_flag = True

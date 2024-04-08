@@ -31,7 +31,6 @@ const buttonMap = {
 
 }
 
-// Function to simulate a button click
 function simulateButtonClick(button) {
   const originalBackgroundColor = '';
   const originalStyleColor = '';

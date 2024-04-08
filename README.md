@@ -2,13 +2,13 @@
 
 ## Description
 
-#### The Classic Wordle Challenge 
-In ***WordGuesser***, you'll be presented with a secret word that you need to guess correctly within a limited number of attempts. 
-Each time you guess a letter, you'll receive feedback on whether the letter is in the word and if it's in the correct position. 
+#### The Classic Wordle Challenge
+In ***WordGuesser***, you'll be presented with a secret word that you need to guess correctly within a limited number of attempts.
+Each time you guess a letter, you'll receive feedback on whether the letter is in the word and if it's in the correct position.
 Use this feedback to strategically deduce the hidden word.
 
 #### Web Scraper Feature
-One of the standout features of ***WordGuesser*** is its built-in web scraper. The web scraper roams various websites, collecting a treasure trove of words and their definitions. 
+One of the standout features of ***WordGuesser*** is its built-in web scraper. The web scraper roams various websites, collecting a treasure trove of words and their definitions.
 It enriches the game by providing you with not just a list of words but also their meanings. This feature not only enhances your gameplay but also offers a valuable learning experience.
 
 #### Multi-language
@@ -37,7 +37,7 @@ cd WordGuesser
 python -m venv venv
 venv\Scripts\activate
 ```
-   
+
 ***3. Install project dependencies from requirements.txt:***
 ```sh
 pip install -r requirements.txt

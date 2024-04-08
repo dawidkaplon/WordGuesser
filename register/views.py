@@ -7,7 +7,7 @@ from .forms import RegisterForm, LoginForm
 
 def register(request):
     form = RegisterForm()
-    
+
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
