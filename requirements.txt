@@ -17,6 +17,6 @@ sqlparse==0.4.4
 typing_extensions==4.7.1
 tzdata==2023.3
 urllib3==2.0.4
-websocket-client==1.6.2
+websocket-client==1.7.0
 django-rest-swagger==2.2.0
 drf_yasg==1.21.5
